@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lembretes/constantes/PaletaDeCores.dart';
 import 'Paginas/Home.dart';
 
 void main() {
@@ -10,9 +11,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Lembretes',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: PaletaDeCores.amareloum,
       ),
       home: Home(),
     );
