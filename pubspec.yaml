@@ -61,7 +61,7 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Trajan Pro
+    - family: Gowun Batang
       fonts:
         - asset: assets/fonts/GowunBatang-Regular.ttf
         - asset: assets/fonts/GowunBatang-Bold.ttf
