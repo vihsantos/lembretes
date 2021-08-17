@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lembretes/constantes/PaletaDeCores.dart';
+
 import 'Paginas/home/Home.dart';
 
 void main() {
