@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lembretes/componentes/appBar.dart';
 import 'package:lembretes/constantes/PaletaDeCores.dart';
 import 'package:lembretes/models/Lembrete.dart';
 import 'componentes/CardLembrete.dart';
@@ -19,18 +20,7 @@ class _HomeState extends State<Home> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
         backgroundColor: PaletaDeCores.background,
-        appBar: AppBar(
-          backgroundColor: PaletaDeCores.background,
-          elevation: 0,
-          centerTitle: true,
-          title: Text("Lembretes",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontFamily: "Gowun Batang",
-                fontSize: 32,
-                color: PaletaDeCores.preto,
-              )),
-        ),
+        appBar: appBar("Home"),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
