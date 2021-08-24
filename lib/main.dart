@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lembretes/Paginas/NovoLembrete/NovoLembrete.dart';
 import 'package:lembretes/constantes/PaletaDeCores.dart';
 
-import 'Paginas/home/Home.dart';
+import 'Paginas/PagesBottom.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Lembretes',
       theme: ThemeData(primaryColor: PaletaDeCores.branco),
-      home: Home(),
+      home: PagesBottom(),
     );
   }
 }
