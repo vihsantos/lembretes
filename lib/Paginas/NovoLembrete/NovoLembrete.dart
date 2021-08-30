@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:lembretes/componentes/appBar.dart';
 import 'package:lembretes/constantes/PaletaDeCores.dart';
 
+import 'componentes/BotaoSalvar.dart';
+
 class NovoLembrete extends StatefulWidget {
   const NovoLembrete({Key key}) : super(key: key);
 
@@ -25,8 +27,8 @@ class _NovoLembreteState extends State<NovoLembrete> {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
                   gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.topRight,
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
                       colors: [PaletaDeCores.roxoum, PaletaDeCores.amareloum])),
               child: Form(
                   child: Column(
@@ -77,20 +79,36 @@ class _NovoLembreteState extends State<NovoLembrete> {
                     height: 20,
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 190),
-                    child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            textStyle: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: PaletaDeCores.amareloum,
-                                fontFamily: "Gowun Batang",
-                                fontSize: 18),
-                            primary: PaletaDeCores.roxoum,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(25)),
-                            minimumSize: Size(100, 45)),
-                        onPressed: () {},
-                        child: Text("Salvar")),
+                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            Container(
+                              height: 45,
+                              width: 45,
+                              decoration: BoxDecoration(
+                                color: PaletaDeCores.preto,
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Container(
+                              height: 45,
+                              width: 45,
+                              decoration: BoxDecoration(
+                                color: PaletaDeCores.preto,
+                                borderRadius: BorderRadius.circular(25),
+                              ),
+                            ),
+                          ],
+                        ),
+                        BotaoSalvar(),
+                      ],
+                    ),
                   )
                 ],
               )),
