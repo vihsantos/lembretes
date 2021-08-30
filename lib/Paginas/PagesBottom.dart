@@ -16,9 +16,19 @@ class _PagesBottomState extends State<PagesBottom> {
   PageController pgController;
 
   void troca(int index) {
+    trocaIndex(index);
+  }
+
+  void trocaIndex(int index) {
     setState(() {
       pageIndex = index;
+      animatePage(index);
     });
+  }
+
+  void animatePage(int index) {
+    pgController.animateToPage(index,
+        duration: Duration(milliseconds: 15), curve: Curves.decelerate);
   }
 
   @override
@@ -31,25 +41,26 @@ class _PagesBottomState extends State<PagesBottom> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
-        onPageChanged: troca,
+        onPageChanged: (index) {
+          setState(() {
+            pageIndex = index;
+          });
+        },
         controller: pgController,
         children: [Tudo(), Home(), NovoLembrete()],
       ),
-      bottomNavigationBar: Padding(
-        padding: const EdgeInsets.only(bottom: 15, left: 5, right: 5),
-        child: BottomNavigationBar(
-          currentIndex: pageIndex,
-          onTap: troca,
-          backgroundColor: PaletaDeCores.preto,
-          selectedItemColor: PaletaDeCores.roxoum,
-          unselectedItemColor: PaletaDeCores.branco,
-          items: [
-            BottomNavigationBarItem(icon: Icon(Icons.list), label: "Tudo"),
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.add_circle_rounded), label: "Novo Lembrete"),
-          ],
-        ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: pageIndex,
+        onTap: troca,
+        backgroundColor: PaletaDeCores.preto,
+        selectedItemColor: PaletaDeCores.roxoum,
+        unselectedItemColor: PaletaDeCores.branco,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.list), label: "Tudo"),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.add_circle_rounded), label: "Novo Lembrete"),
+        ],
       ),
     );
   }
