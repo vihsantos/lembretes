@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lembretes/Paginas/Detalhar/Detalhar.dart';
 import 'package:lembretes/Paginas/home/componentes/CardLembrete.dart';
 import 'package:lembretes/componentes/appBar.dart';
 import 'package:lembretes/constantes/PaletaDeCores.dart';
@@ -29,6 +30,12 @@ class _TudoState extends State<Tudo> {
                     data: DateFormat('dd/MM/yyyy').format(l.data),
                     descricao: l.descricao,
                     titulo: l.titulo,
+                    press: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Detalhar(detalhar: l)));
+                    },
                   );
                 }),
           )

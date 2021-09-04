@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lembretes/Paginas/Detalhar/Detalhar.dart';
 import 'package:lembretes/componentes/appBar.dart';
 import 'package:lembretes/constantes/PaletaDeCores.dart';
 import 'package:lembretes/models/Lembrete.dart';
@@ -70,6 +71,12 @@ class _HomeState extends State<Home> {
                       data: DateFormat('dd/MM/yyyy').format(l.data),
                       descricao: l.descricao,
                       titulo: l.titulo,
+                      press: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Detalhar(detalhar: l)));
+                      },
                     );
                   }),
             ),
