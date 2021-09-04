@@ -27,9 +27,9 @@ class _NovoLembreteState extends State<NovoLembrete> {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
                   gradient: LinearGradient(
-                      begin: Alignment.topCenter,
+                      begin: Alignment.centerLeft,
                       end: Alignment.bottomCenter,
-                      colors: [PaletaDeCores.roxoum, PaletaDeCores.amareloum])),
+                      colors: [PaletaDeCores.rosaum, PaletaDeCores.azulum])),
               child: Form(
                   child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,7 +47,12 @@ class _NovoLembreteState extends State<NovoLembrete> {
                             const EdgeInsets.only(top: 4, bottom: 4, left: 4),
                         child: TextFormField(
                           decoration: InputDecoration(
-                              border: InputBorder.none, hintText: "Titulo"),
+                              border: InputBorder.none,
+                              hintText: "Titulo",
+                              hintStyle: TextStyle(
+                                  fontStyle: FontStyle.italic,
+                                  color:
+                                      PaletaDeCores.branco.withOpacity(0.8))),
                         ),
                       ),
                     ),
@@ -70,7 +75,11 @@ class _NovoLembreteState extends State<NovoLembrete> {
                           maxLines: 10,
                           decoration: InputDecoration(
                               border: InputBorder.none,
-                              hintText: "Escreva aqui seu lembrete..."),
+                              hintText: "Escreva aqui seu lembrete...",
+                              hintStyle: TextStyle(
+                                  fontStyle: FontStyle.italic,
+                                  color:
+                                      PaletaDeCores.branco.withOpacity(0.8))),
                         ),
                       ),
                     ),
@@ -89,9 +98,21 @@ class _NovoLembreteState extends State<NovoLembrete> {
                               height: 45,
                               width: 45,
                               decoration: BoxDecoration(
-                                color: PaletaDeCores.preto,
+                                gradient: LinearGradient(
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                    colors: [
+                                      PaletaDeCores.roxoum,
+                                      PaletaDeCores.roxodois,
+                                    ]),
                                 borderRadius: BorderRadius.circular(25),
                               ),
+                              child: IconButton(
+                                  icon: Icon(
+                                    Icons.favorite_border,
+                                    color: PaletaDeCores.branco,
+                                  ),
+                                  onPressed: () {}),
                             ),
                             SizedBox(
                               width: 10,
@@ -100,9 +121,19 @@ class _NovoLembreteState extends State<NovoLembrete> {
                               height: 45,
                               width: 45,
                               decoration: BoxDecoration(
-                                color: PaletaDeCores.preto,
+                                gradient: LinearGradient(
+                                    begin: Alignment.topCenter,
+                                    end: Alignment.bottomCenter,
+                                    colors: [
+                                      PaletaDeCores.roxoum,
+                                      PaletaDeCores.roxodois,
+                                    ]),
                                 borderRadius: BorderRadius.circular(25),
                               ),
+                              child: IconButton(
+                                  icon: Icon(Icons.folder,
+                                      color: PaletaDeCores.branco),
+                                  onPressed: () {}),
                             ),
                           ],
                         ),
