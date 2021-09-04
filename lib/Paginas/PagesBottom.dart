@@ -52,9 +52,9 @@ class _PagesBottomState extends State<PagesBottom> {
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: pageIndex,
         onTap: troca,
-        backgroundColor: PaletaDeCores.preto,
-        selectedItemColor: PaletaDeCores.roxoum,
-        unselectedItemColor: PaletaDeCores.branco,
+        backgroundColor: PaletaDeCores.roxoum,
+        selectedItemColor: PaletaDeCores.amareloum,
+        unselectedItemColor: PaletaDeCores.background,
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.list), label: "Tudo"),
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
