@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lembretes/Paginas/Detalhar/Detalhar.dart';
+import 'package:lembretes/Paginas/Favoritos/Favoritos.dart';
+import 'package:lembretes/Paginas/MinhaPasta/MinhaPasta.dart';
 import 'package:lembretes/componentes/appBar.dart';
 import 'package:lembretes/constantes/PaletaDeCores.dart';
 import 'package:lembretes/models/Lembrete.dart';
@@ -37,11 +39,21 @@ class _HomeState extends State<Home> {
                       IconeHome(
                           icon: Icons.favorite,
                           titulo: 'Favoritos',
-                          onpress: () {}),
+                          onpress: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Favoritos()));
+                          }),
                       IconeHome(
                           icon: Icons.folder,
                           titulo: 'Minha Pasta',
-                          onpress: () {}),
+                          onpress: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => MinhaPasta()));
+                          }),
                       IconeHome(
                           icon: Icons.timer, titulo: 'Antigos', onpress: () {})
                     ],
