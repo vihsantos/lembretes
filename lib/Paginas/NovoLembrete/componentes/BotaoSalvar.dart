@@ -4,7 +4,10 @@ import 'package:lembretes/constantes/PaletaDeCores.dart';
 class BotaoSalvar extends StatelessWidget {
   const BotaoSalvar({
     Key key,
+    @required this.press,
   }) : super(key: key);
+
+  final Function press;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +22,7 @@ class BotaoSalvar extends StatelessWidget {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(25)),
             minimumSize: Size(100, 45)),
-        onPressed: () {},
+        onPressed: press,
         child: Text("Salvar"));
   }
 }

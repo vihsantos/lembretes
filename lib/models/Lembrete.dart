@@ -5,6 +5,14 @@ class Lembrete {
   final DateTime data;
 
   Lembrete({this.id, this.titulo, this.descricao, this.data});
+
+  addLembrete(Lembrete l) {
+    lembretes.add(l);
+  }
+
+  removerLembrete(Lembrete l) {
+    lembretes.remove(l);
+  }
 }
 
 List<Lembrete> lembretes = [

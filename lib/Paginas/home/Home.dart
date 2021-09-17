@@ -5,7 +5,7 @@ import 'package:lembretes/Paginas/MinhaPasta/MinhaPasta.dart';
 import 'package:lembretes/componentes/appBar.dart';
 import 'package:lembretes/constantes/PaletaDeCores.dart';
 import 'package:lembretes/models/Lembrete.dart';
-import 'componentes/CardLembrete.dart';
+import '../../componentes/CardLembrete.dart';
 import 'package:intl/intl.dart';
 
 import 'componentes/IconeHome.dart';

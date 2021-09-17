@@ -24,6 +24,16 @@ class IconeHome extends StatelessWidget {
           height: size.height * 0.15,
           width: size.width * 0.3,
           decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                    color: PaletaDeCores.amareloum.withOpacity(0.2),
+                    offset: Offset(-4, -4),
+                    blurRadius: 1),
+                BoxShadow(
+                    color: PaletaDeCores.roxoum.withOpacity(0.2),
+                    offset: Offset(4, 4),
+                    blurRadius: 1)
+              ],
               borderRadius: BorderRadius.circular(30),
               color: PaletaDeCores.branco),
           child: Stack(

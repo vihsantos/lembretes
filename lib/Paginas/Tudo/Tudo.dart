@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lembretes/Paginas/Detalhar/Detalhar.dart';
-import 'package:lembretes/Paginas/home/componentes/CardLembrete.dart';
+import 'package:lembretes/componentes/CardLembrete.dart';
 import 'package:lembretes/componentes/appBar.dart';
 import 'package:lembretes/constantes/PaletaDeCores.dart';
 import 'package:lembretes/models/Lembrete.dart';

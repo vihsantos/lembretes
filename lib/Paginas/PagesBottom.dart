@@ -12,7 +12,7 @@ class PagesBottom extends StatefulWidget {
 }
 
 class _PagesBottomState extends State<PagesBottom> {
-  int pageIndex = 0;
+  int pageIndex = 1;
   PageController pgController;
 
   void troca(int index) {
