@@ -29,7 +29,8 @@ List<Lembrete> lembretes = [
   Lembrete(
       id: 2,
       titulo: "Vida",
-      descricao: "comprar isso e aquilo, mas aquilo",
+      descricao:
+          "comprar isso e aquilo, mas aquilo comprar isso e aquilo, mas aquilo comprar isso e aquilo, mas aquilo comprar isso e aquilo, mas aquilocomprar isso e aquilo, mas aquilocomprar isso e aquilo, mas aquilo",
       data: DateTime.now()),
   Lembrete(
       id: 3,
