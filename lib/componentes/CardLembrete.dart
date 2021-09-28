@@ -70,10 +70,12 @@ class CardLembrete extends StatelessWidget {
                 Positioned(
                   top: 60,
                   left: 15,
-                  right: 15,
-                  child: SizedBox(
-                    width: 340,
+                  child: Container(
+                    // color: PaletaDeCores.branco,
+                    width: 245,
                     child: Text(descricao,
+                        maxLines: 3,
+                        overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                             color: PaletaDeCores.branco,
                             fontStyle: FontStyle.italic)),
