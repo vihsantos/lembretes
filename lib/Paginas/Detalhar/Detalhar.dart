@@ -23,11 +23,10 @@ class Detalhar extends StatelessWidget {
                   children: [
                     Text(detalhar.titulo,
                         style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "Gowun Batang",
-                          fontSize: 30,
-                          color: PaletaDeCores.roxoum,
-                        )),
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "Gowun Batang",
+                            fontSize: 30,
+                            color: PaletaDeCores.preto)),
                     SizedBox(
                       width: 20,
                     ),
@@ -35,7 +34,7 @@ class Detalhar extends StatelessWidget {
                       DateFormat('dd/MM/yyyy').format(detalhar.datal),
                       style: TextStyle(
                           fontSize: 12,
-                          color: PaletaDeCores.roxoum.withOpacity(0.4)),
+                          color: PaletaDeCores.preto.withOpacity(0.4)),
                     )
                   ],
                 ),
@@ -48,7 +47,7 @@ class Detalhar extends StatelessWidget {
                       fontStyle: FontStyle.italic,
                       fontFamily: "Gowun Batang",
                       fontSize: 20,
-                      color: PaletaDeCores.roxoum,
+                      color: PaletaDeCores.preto,
                     )),
               )
             ],
