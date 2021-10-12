@@ -5,13 +5,16 @@ class LembretesController extends GetxController {
   List lembretes = [].obs;
   RxBool loading = false.obs;
 
-  LembretesController() {
+  @override
+  void onInit() {
     buscarLembretes();
+    super.onInit();
   }
 
   buscarLembretes() async {
     loading(true);
     lembretes = await LembreteServices.getLembretes();
     loading(false);
+    update();
   }
 }
