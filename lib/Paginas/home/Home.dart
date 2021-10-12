@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lembretes/Paginas/Detalhar/Detalhar.dart';
 import 'package:lembretes/Paginas/Favoritos/Favoritos.dart';
 import 'package:lembretes/Paginas/MinhaPasta/MinhaPasta.dart';
+import 'package:lembretes/componentes/CardLembrete.dart';
 import 'package:lembretes/componentes/appBar.dart';
 import 'package:lembretes/constantes/PaletaDeCores.dart';
+import 'package:lembretes/controllers/LembretesController.dart';
 import 'package:lembretes/models/Lembrete.dart';
-import '../../componentes/CardLembrete.dart';
 import 'package:intl/intl.dart';
-
 import 'componentes/IconeHome.dart';
 
 class Home extends StatefulWidget {
@@ -18,6 +19,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  final LembretesController lembretesController =
+      Get.put(LembretesController());
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -74,24 +78,24 @@ class _HomeState extends State<Home> {
             SizedBox(
               height: 10,
             ),
-            Expanded(
-              child: ListView.builder(
-                  itemCount: 3,
+            Expanded(child: Obx(() {
+              if (lembretesController.loading == true) {
+                return Center(child: CircularProgressIndicator());
+              }
+              return ListView.builder(
+                  itemCount: lembretesController.lembretes.length,
                   itemBuilder: (context, index) {
-                    Lembrete l = lembretes[index];
+                    Lembrete l = lembretesController.lembretes[index];
                     return CardLembrete(
-                      data: DateFormat('dd/MM/yyyy').format(l.data),
+                      data: DateFormat('dd/MM/yyyy').format(l.datal),
                       descricao: l.descricao,
                       titulo: l.titulo,
                       press: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Detalhar(detalhar: l)));
+                        Get.to(Detalhar(detalhar: l));
                       },
                     );
-                  }),
-            ),
+                  });
+            }))
           ],
         ));
   }
