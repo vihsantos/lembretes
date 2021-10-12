@@ -119,7 +119,7 @@ class _NovoLembreteState extends State<NovoLembrete> {
                               // valor = 0;
                               // data = null;
 
-                              Get.to(Home());
+                              Get.off(Home());
                             },
                           ),
                         ),
