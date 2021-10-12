@@ -41,8 +41,8 @@ class CardLembrete extends StatelessWidget {
               borderRadius: BorderRadius.circular(30),
               gradient: LinearGradient(
                   begin: Alignment.topLeft,
-                  end: Alignment.topRight,
-                  colors: [PaletaDeCores.roxoum, PaletaDeCores.amareloum])),
+                  end: Alignment.bottomCenter,
+                  colors: [PaletaDeCores.azulum, PaletaDeCores.azuldois])),
           child: Center(
             child: Stack(
               children: <Widget>[
