@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:lembretes/Paginas/home/Home.dart';
+import 'package:lembretes/Services/LembreteServices.dart';
 import 'package:lembretes/componentes/appBar.dart';
 import 'package:lembretes/constantes/PaletaDeCores.dart';
 import 'package:get/get.dart';
+import 'package:lembretes/models/Lembrete.dart';
 import 'componentes/BotaoSalvar.dart';
 
 class NovoLembrete extends StatefulWidget {
@@ -103,23 +105,21 @@ class _NovoLembreteState extends State<NovoLembrete> {
                         child: Center(
                           child: BotaoSalvar(
                             press: () {
-                              // int valor = lembretes.length + 1;
-                              // DateTime data = DateTime.now();
+                              DateTime data = DateTime.now();
 
-                              // Lembrete novo = new Lembrete(
-                              //     id: valor,
-                              //     titulo: tituloController.text,
-                              //     descricao: descricaoController.text,
-                              //     data: data);
+                              Lembrete novo = new Lembrete(
+                                  titulo: tituloController.text,
+                                  descricao: descricaoController.text,
+                                  datal: data);
 
-                              // novo.addLembrete(novo);
+                              LembreteServices.enviarLembrete(novo);
 
-                              // tituloController.clear();
-                              // descricaoController.clear();
-                              // valor = 0;
-                              // data = null;
+                              tituloController.clear();
+                              descricaoController.clear();
 
-                              Get.off(Home());
+                              data = null;
+
+                              Get.offAll(Home());
                             },
                           ),
                         ),

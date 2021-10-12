@@ -19,4 +19,15 @@ class LembreteServices {
       return null;
     }
   }
+
+  static Future enviarLembrete(Lembrete lembrete) async {
+    var uri = Uri.parse('http://localhost:3000/lembretes/');
+
+    var response = await http.post(uri,
+        headers: {"Content-Type": "application/json"},
+        body: json.encode(lembrete));
+
+    if (response.statusCode == 200) print("Ok!!");
+    return response;
+  }
 }
