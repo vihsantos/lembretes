@@ -16,8 +16,7 @@ class Tudo extends StatefulWidget {
 }
 
 class _TudoState extends State<Tudo> {
-  final LembretesController lembretesController =
-      Get.put(LembretesController());
+  final LembretesController lembretesController = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
