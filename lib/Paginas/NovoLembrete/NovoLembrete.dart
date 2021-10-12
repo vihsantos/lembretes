@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:lembretes/Paginas/home/Home.dart';
-import 'package:lembretes/componentes/IconeAddLista.dart';
 import 'package:lembretes/componentes/appBar.dart';
 import 'package:lembretes/constantes/PaletaDeCores.dart';
-import 'package:lembretes/models/Lembrete.dart';
-
+import 'package:get/get.dart';
 import 'componentes/BotaoSalvar.dart';
-import 'componentes/CirculoIcone.dart';
 
 class NovoLembrete extends StatefulWidget {
   const NovoLembrete({Key key}) : super(key: key);
@@ -40,7 +37,7 @@ class _NovoLembreteState extends State<NovoLembrete> {
                   gradient: LinearGradient(
                       begin: Alignment.centerLeft,
                       end: Alignment.bottomCenter,
-                      colors: [PaletaDeCores.rosaum, PaletaDeCores.azulum])),
+                      colors: [PaletaDeCores.roxoum, PaletaDeCores.roxodois])),
               child: Form(
                   key: _formKey,
                   child: Column(
@@ -122,10 +119,7 @@ class _NovoLembreteState extends State<NovoLembrete> {
                               // valor = 0;
                               // data = null;
 
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Home()));
+                              Get.to(Home());
                             },
                           ),
                         ),

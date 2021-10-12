@@ -26,7 +26,7 @@ class IconeHome extends StatelessWidget {
           decoration: BoxDecoration(
               boxShadow: [
                 BoxShadow(
-                    color: PaletaDeCores.amareloum.withOpacity(0.2),
+                    color: PaletaDeCores.branco.withOpacity(0.2),
                     offset: Offset(-4, -4),
                     blurRadius: 1),
                 BoxShadow(
@@ -45,7 +45,7 @@ class IconeHome extends StatelessWidget {
                 child: Icon(
                   icon,
                   size: 60,
-                  color: PaletaDeCores.roxodois,
+                  color: PaletaDeCores.azultres,
                 ),
               ),
               Positioned(
@@ -56,7 +56,7 @@ class IconeHome extends StatelessWidget {
                   child: Text(
                     titulo,
                     style: TextStyle(
-                        color: PaletaDeCores.roxodois,
+                        color: PaletaDeCores.azultres,
                         fontFamily: "Gonwun Batang",
                         fontSize: 12,
                         fontWeight: FontWeight.bold),
