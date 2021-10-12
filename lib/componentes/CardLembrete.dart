@@ -47,16 +47,6 @@ class CardLembrete extends StatelessWidget {
             child: Stack(
               children: <Widget>[
                 Positioned(
-                    top: 40,
-                    right: 15,
-                    child: IconButton(
-                        icon: Icon(Icons.favorite_border), onPressed: () {})),
-                Positioned(
-                    top: 90,
-                    right: 15,
-                    child:
-                        IconButton(icon: Icon(Icons.folder), onPressed: () {})),
-                Positioned(
                   top: 15,
                   left: 15,
                   child: Text(titulo,
