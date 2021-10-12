@@ -32,9 +32,10 @@ class Detalhar extends StatelessWidget {
                       width: 20,
                     ),
                     Text(
-                      DateFormat('dd/MM/yyyy').format(detalhar.data),
-                      style:
-                          TextStyle(fontSize: 12, color: PaletaDeCores.azulum),
+                      DateFormat('dd/MM/yyyy').format(detalhar.datal),
+                      style: TextStyle(
+                          fontSize: 12,
+                          color: PaletaDeCores.roxoum.withOpacity(0.4)),
                     )
                   ],
                 ),
