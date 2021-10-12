@@ -83,7 +83,9 @@ class _HomeState extends State<Home> {
                 return Center(child: CircularProgressIndicator());
               }
               return ListView.builder(
-                  itemCount: lembretesController.lembretes.length,
+                  itemCount: lembretesController.lembretes.length > 3
+                      ? 3
+                      : lembretesController.lembretes.length,
                   itemBuilder: (context, index) {
                     Lembrete l = lembretesController.lembretes[index];
                     return CardLembrete(
