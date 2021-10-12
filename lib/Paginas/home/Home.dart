@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lembretes/Paginas/Detalhar/Detalhar.dart';
-import 'package:lembretes/Paginas/Favoritos/Favoritos.dart';
-import 'package:lembretes/Paginas/MinhaPasta/MinhaPasta.dart';
+import 'package:lembretes/Paginas/NovoLembrete/NovoLembrete.dart';
+import 'package:lembretes/Paginas/Tudo/Tudo.dart';
 import 'package:lembretes/componentes/CardLembrete.dart';
 import 'package:lembretes/componentes/appBar.dart';
 import 'package:lembretes/constantes/PaletaDeCores.dart';
@@ -41,22 +41,16 @@ class _HomeState extends State<Home> {
                   child: Row(
                     children: <Widget>[
                       IconeHome(
-                          icon: Icons.favorite,
-                          titulo: 'Favoritos',
+                          icon: Icons.add,
+                          titulo: 'Adicionar',
                           onpress: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Favoritos()));
+                            Get.to(NovoLembrete());
                           }),
                       IconeHome(
                           icon: Icons.folder,
-                          titulo: 'Minha Pasta',
+                          titulo: 'Lembretes',
                           onpress: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => MinhaPasta()));
+                            Get.to(Tudo());
                           }),
                       IconeHome(
                           icon: Icons.timer, titulo: 'Antigos', onpress: () {})
