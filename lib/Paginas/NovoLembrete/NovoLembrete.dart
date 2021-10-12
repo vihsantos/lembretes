@@ -142,21 +142,21 @@ class _NovoLembreteState extends State<NovoLembrete> {
                             ),
                             BotaoSalvar(
                               press: () {
-                                int valor = lembretes.length + 1;
-                                DateTime data = DateTime.now();
+                                // int valor = lembretes.length + 1;
+                                // DateTime data = DateTime.now();
 
-                                Lembrete novo = new Lembrete(
-                                    id: valor,
-                                    titulo: tituloController.text,
-                                    descricao: descricaoController.text,
-                                    data: data);
+                                // Lembrete novo = new Lembrete(
+                                //     id: valor,
+                                //     titulo: tituloController.text,
+                                //     descricao: descricaoController.text,
+                                //     data: data);
 
-                                novo.addLembrete(novo);
+                                // novo.addLembrete(novo);
 
-                                tituloController.clear();
-                                descricaoController.clear();
-                                valor = 0;
-                                data = null;
+                                // tituloController.clear();
+                                // descricaoController.clear();
+                                // valor = 0;
+                                // data = null;
 
                                 Navigator.push(
                                     context,

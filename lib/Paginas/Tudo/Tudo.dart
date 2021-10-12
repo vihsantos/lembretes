@@ -3,7 +3,6 @@ import 'package:lembretes/Paginas/Detalhar/Detalhar.dart';
 import 'package:lembretes/componentes/CardLembrete.dart';
 import 'package:lembretes/componentes/appBar.dart';
 import 'package:lembretes/constantes/PaletaDeCores.dart';
-import 'package:lembretes/models/Lembrete.dart';
 import 'package:intl/intl.dart';
 
 class Tudo extends StatefulWidget {
@@ -21,24 +20,24 @@ class _TudoState extends State<Tudo> {
       backgroundColor: PaletaDeCores.background,
       body: Column(
         children: [
-          Expanded(
-            child: ListView.builder(
-                itemCount: lembretes.length,
-                itemBuilder: (context, index) {
-                  Lembrete l = lembretes[index];
-                  return CardLembrete(
-                    data: DateFormat('dd/MM/yyyy').format(l.data),
-                    descricao: l.descricao,
-                    titulo: l.titulo,
-                    press: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Detalhar(detalhar: l)));
-                    },
-                  );
-                }),
-          )
+          // Expanded(
+          //   child: ListView.builder(
+          //       itemCount: lembretes.length,
+          //       itemBuilder: (context, index) {
+          //         Lembrete l = lembretes[index];
+          //         return CardLembrete(
+          //           data: DateFormat('dd/MM/yyyy').format(l.data),
+          //           descricao: l.descricao,
+          //           titulo: l.titulo,
+          //           press: () {
+          //             Navigator.push(
+          //                 context,
+          //                 MaterialPageRoute(
+          //                     builder: (context) => Detalhar(detalhar: l)));
+          //           },
+          //         );
+          //       }),
+          // )
         ],
       ),
     );
