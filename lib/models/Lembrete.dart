@@ -1,45 +1,18 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'Lembrete.g.dart';
+
+@JsonSerializable()
 class Lembrete {
   final int id;
   final String titulo;
   final String descricao;
-  final DateTime data;
+  final DateTime datal;
 
-  Lembrete({this.id, this.titulo, this.descricao, this.data});
+  Lembrete({this.id, this.titulo, this.descricao, this.datal});
 
-  addLembrete(Lembrete l) {
-    lembretes.add(l);
-  }
+  factory Lembrete.fromJson(Map<String, dynamic> json) =>
+      _$LembreteFromJson(json);
 
-  removerLembrete(Lembrete l) {
-    lembretes.remove(l);
-  }
+  Map<String, dynamic> toJson() => _$LembreteToJson(this);
 }
-
-List<Lembrete> lembretes = [
-  Lembrete(
-      id: 0,
-      titulo: "Casa",
-      descricao: "comprar isso e aquilo, mas aquilo",
-      data: DateTime.now()),
-  Lembrete(
-      id: 1,
-      titulo: "Roupas",
-      descricao: "comprar isso e aquilo, mas aquilo",
-      data: DateTime.now()),
-  Lembrete(
-      id: 2,
-      titulo: "Vida",
-      descricao:
-          "comprar isso e aquilo, mas aquilo comprar isso e aquilo, mas aquilo comprar isso e aquilo, mas aquilo comprar isso e aquilo, mas aquilocomprar isso e aquilo, mas aquilocomprar isso e aquilo, mas aquilo",
-      data: DateTime.now()),
-  Lembrete(
-      id: 3,
-      titulo: "Blábláblá",
-      descricao: "comprar isso e aquilo, mas aquilo",
-      data: DateTime.now()),
-  Lembrete(
-      id: 4,
-      titulo: "Sonho",
-      descricao: "comprar isso e aquilo, mas aquilo",
-      data: DateTime.now()),
-];
