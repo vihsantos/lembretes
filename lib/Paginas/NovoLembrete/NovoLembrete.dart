@@ -103,68 +103,31 @@ class _NovoLembreteState extends State<NovoLembrete> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 10, right: 10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: [
-                                CirculoIcone(
-                                    child: IconAddLista(
-                                  iconeNaoSelecionado: Icons.favorite_border,
-                                  iconeSelecionado: Icons.favorite,
-                                  onpressed: () {
-                                    setState(() {
-                                      iconefavorito == true
-                                          ? iconefavorito = false
-                                          : iconefavorito = true;
-                                    });
-                                  },
-                                  selecionado: iconefavorito,
-                                )),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                CirculoIcone(
-                                  child: IconAddLista(
-                                    iconeNaoSelecionado: Icons.folder_open,
-                                    iconeSelecionado: Icons.folder,
-                                    onpressed: () {
-                                      setState(() {
-                                        iconepasta == true
-                                            ? iconepasta = false
-                                            : iconepasta = true;
-                                      });
-                                    },
-                                    selecionado: iconepasta,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            BotaoSalvar(
-                              press: () {
-                                // int valor = lembretes.length + 1;
-                                // DateTime data = DateTime.now();
+                        child: Center(
+                          child: BotaoSalvar(
+                            press: () {
+                              // int valor = lembretes.length + 1;
+                              // DateTime data = DateTime.now();
 
-                                // Lembrete novo = new Lembrete(
-                                //     id: valor,
-                                //     titulo: tituloController.text,
-                                //     descricao: descricaoController.text,
-                                //     data: data);
+                              // Lembrete novo = new Lembrete(
+                              //     id: valor,
+                              //     titulo: tituloController.text,
+                              //     descricao: descricaoController.text,
+                              //     data: data);
 
-                                // novo.addLembrete(novo);
+                              // novo.addLembrete(novo);
 
-                                // tituloController.clear();
-                                // descricaoController.clear();
-                                // valor = 0;
-                                // data = null;
+                              // tituloController.clear();
+                              // descricaoController.clear();
+                              // valor = 0;
+                              // data = null;
 
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Home()));
-                              },
-                            ),
-                          ],
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Home()));
+                            },
+                          ),
                         ),
                       )
                     ],
