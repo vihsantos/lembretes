@@ -44,7 +44,9 @@ class _HomeState extends State<Home> {
                             Get.to(Tudo());
                           }),
                       IconeHome(
-                          icon: Icons.info, titulo: 'Sobre', onpress: () {})
+                          icon: Icons.info_outline,
+                          titulo: 'Sobre',
+                          onpress: () {})
                     ],
                   ),
                 ),
@@ -68,6 +70,78 @@ class _HomeState extends State<Home> {
             SizedBox(
               height: 10,
             ),
+            Center(
+              child: Container(
+                  width: size.width * 0.9,
+                  height: size.height * 0.4,
+                  decoration: BoxDecoration(
+                    color: PaletaDeCores.branco,
+                    borderRadius: BorderRadius.circular(30),
+                    boxShadow: [
+                      BoxShadow(
+                          color: PaletaDeCores.branco.withOpacity(0.2),
+                          offset: Offset(-4, -4),
+                          blurRadius: 1),
+                      BoxShadow(
+                          color: PaletaDeCores.roxoum.withOpacity(0.2),
+                          offset: Offset(4, 4),
+                          blurRadius: 1)
+                    ],
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Container(
+                            width: 140,
+                            height: 140,
+                            decoration: BoxDecoration(
+                                color: PaletaDeCores.background,
+                                borderRadius: BorderRadius.circular(100),
+                                boxShadow: [
+                                  BoxShadow(
+                                      color:
+                                          PaletaDeCores.preto.withOpacity(0.2),
+                                      offset: Offset(2, 2),
+                                      blurRadius: 5),
+                                ]),
+                            child: Center(
+                              child: Text(
+                                "5",
+                                style: TextStyle(
+                                    fontSize: 70,
+                                    fontWeight: FontWeight.bold,
+                                    color: PaletaDeCores.azultres),
+                              ),
+                            ),
+                          ),
+                          Column(
+                            children: [
+                              Text(
+                                "LEMBRETES",
+                                style: TextStyle(
+                                  fontSize: 20,
+                                  fontFamily: "Gowun Batang",
+                                  fontWeight: FontWeight.w900,
+                                  color: PaletaDeCores.azultres,
+                                ),
+                              ),
+                              Text("NOS ULTIMOS DIAS",
+                                  style: TextStyle(
+                                    fontSize: 12.5,
+                                    fontFamily: "Gowun Batang",
+                                    color: PaletaDeCores.azultres,
+                                  )),
+                            ],
+                          )
+                        ],
+                      ),
+                    ],
+                  )),
+            )
           ],
         ));
   }
