@@ -21,12 +21,16 @@ class Detalhar extends StatelessWidget {
                 padding: const EdgeInsets.only(left: 20),
                 child: Row(
                   children: [
-                    Text(detalhar.titulo,
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontFamily: "Gowun Batang",
-                            fontSize: 30,
-                            color: PaletaDeCores.preto)),
+                    Container(
+                      width: 220,
+                      child: Text(detalhar.titulo,
+                          maxLines: 2,
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontFamily: "Gowun Batang",
+                              fontSize: 30,
+                              color: PaletaDeCores.preto)),
+                    ),
                     SizedBox(
                       width: 20,
                     ),
