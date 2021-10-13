@@ -32,7 +32,7 @@ class _NovoLembreteState extends State<NovoLembrete> {
         child: SingleChildScrollView(
           child: Center(
             child: Container(
-              height: size.height * 0.52,
+              height: size.height * 0.80,
               width: size.width * 0.9,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
@@ -75,7 +75,7 @@ class _NovoLembreteState extends State<NovoLembrete> {
                       Center(
                         child: Container(
                           width: size.width * 0.85,
-                          height: size.height * 0.3,
+                          height: size.height * 0.56,
                           decoration: BoxDecoration(
                               color: PaletaDeCores.branco.withOpacity(0.1),
                               borderRadius: BorderRadius.circular(25)),
@@ -85,7 +85,7 @@ class _NovoLembreteState extends State<NovoLembrete> {
                             child: TextFormField(
                               controller: descricaoController,
                               keyboardType: TextInputType.multiline,
-                              maxLines: 10,
+                              maxLines: 20,
                               decoration: InputDecoration(
                                   border: InputBorder.none,
                                   hintText: "Escreva aqui seu lembrete...",
@@ -118,8 +118,6 @@ class _NovoLembreteState extends State<NovoLembrete> {
                               descricaoController.clear();
 
                               data = null;
-
-                              Get.offAll(Home());
                             },
                           ),
                         ),
