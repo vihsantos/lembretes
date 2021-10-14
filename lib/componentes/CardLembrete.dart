@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lembretes/constantes/PaletaDeCores.dart';
+import 'package:lembretes/constantes/StylesDecoration.dart';
 
 class CardLembrete extends StatelessWidget {
   const CardLembrete({
@@ -25,24 +26,7 @@ class CardLembrete extends StatelessWidget {
           margin: EdgeInsets.all(10),
           width: size.width * 0.9,
           height: size.height * 0.24,
-          decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                  offset: Offset(3, 3),
-                  blurRadius: 3,
-                  color: PaletaDeCores.roxoum.withOpacity(0.6),
-                ),
-                BoxShadow(
-                  offset: Offset(-3, -3),
-                  blurRadius: 3,
-                  color: PaletaDeCores.amareloum.withOpacity(0.6),
-                )
-              ],
-              borderRadius: BorderRadius.circular(30),
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomCenter,
-                  colors: [PaletaDeCores.azulum, PaletaDeCores.azuldois])),
+          decoration: StylesDecoration.decorationCardLembrete,
           child: Center(
             child: Stack(
               children: <Widget>[
@@ -67,7 +51,7 @@ class CardLembrete extends StatelessWidget {
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                            color: PaletaDeCores.branco,
+                            color: PaletaDeCores.preto.withOpacity(0.6),
                             fontStyle: FontStyle.italic)),
                   ),
                 ),
