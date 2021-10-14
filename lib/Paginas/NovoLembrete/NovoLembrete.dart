@@ -118,6 +118,26 @@ class _NovoLembreteState extends State<NovoLembrete> {
                               descricaoController.clear();
 
                               data = null;
+
+                              return showDialog<void>(
+                                context: context,
+                                barrierDismissible: false,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title: const Text('Lembrete Criado'),
+                                    content: Text(
+                                        "Seu lembrete foi criado com sucesso!"),
+                                    actions: <Widget>[
+                                      TextButton(
+                                        child: const Text('Ok'),
+                                        onPressed: () {
+                                          Get.offAll(Home());
+                                        },
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
                             },
                           ),
                         ),
