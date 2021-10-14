@@ -16,4 +16,17 @@ class StylesDecoration {
           blurRadius: 1)
     ],
   );
+
+  static BoxDecoration decorationCardLembrete = BoxDecoration(boxShadow: [
+    BoxShadow(
+      offset: Offset(3, 3),
+      blurRadius: 3,
+      color: PaletaDeCores.roxoum.withOpacity(0.2),
+    ),
+    BoxShadow(
+      offset: Offset(-3, -3),
+      blurRadius: 3,
+      color: PaletaDeCores.amareloum.withOpacity(0.2),
+    )
+  ], borderRadius: BorderRadius.circular(30), color: PaletaDeCores.branco);
 }
