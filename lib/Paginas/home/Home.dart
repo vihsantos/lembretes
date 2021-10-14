@@ -88,12 +88,20 @@ class _HomeState extends State<Home> {
                           blurRadius: 1)
                     ],
                   ),
-                  child: Column(
+                  child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text("TOTAL DE: ",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontFamily: "Gowun Batang",
+                            color: PaletaDeCores.azultres,
+                          )),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Container(
                             width: 140,
@@ -106,7 +114,7 @@ class _HomeState extends State<Home> {
                                       color:
                                           PaletaDeCores.preto.withOpacity(0.2),
                                       offset: Offset(2, 2),
-                                      blurRadius: 5),
+                                      blurRadius: 3),
                                 ]),
                             child: Center(
                               child: Text(
@@ -118,25 +126,15 @@ class _HomeState extends State<Home> {
                               ),
                             ),
                           ),
-                          Column(
-                            children: [
-                              Text(
-                                "LEMBRETES",
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontFamily: "Gowun Batang",
-                                  fontWeight: FontWeight.w900,
-                                  color: PaletaDeCores.azultres,
-                                ),
-                              ),
-                              Text("NOS ULTIMOS DIAS",
-                                  style: TextStyle(
-                                    fontSize: 12.5,
-                                    fontFamily: "Gowun Batang",
-                                    color: PaletaDeCores.azultres,
-                                  )),
-                            ],
-                          )
+                          Text(
+                            "LEMBRETES",
+                            style: TextStyle(
+                              fontSize: 25,
+                              fontFamily: "Gowun Batang",
+                              fontWeight: FontWeight.w900,
+                              color: PaletaDeCores.azultres,
+                            ),
+                          ),
                         ],
                       ),
                     ],
