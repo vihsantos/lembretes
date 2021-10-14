@@ -10,7 +10,7 @@ class PaletaDeCores {
   static Color verdedois = Color(0xFF18A5A7);
   static Color verdeum = Color(0xFFBFFFC7);
   static Color rosaum = Color(0xFFFE69BD);
-  static Color branco = Color(0xFFFFFFEE);
+  static Color branco = Color(0xFFFFFFFE);
   static Color preto = Color(0xFF00000F);
   static Color background = Color(0xFFededed);
 }
