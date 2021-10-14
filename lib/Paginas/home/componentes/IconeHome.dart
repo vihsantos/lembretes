@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lembretes/constantes/PaletaDeCores.dart';
+import 'package:lembretes/constantes/StylesDecoration.dart';
 
 class IconeHome extends StatelessWidget {
   const IconeHome({
@@ -23,19 +24,7 @@ class IconeHome extends StatelessWidget {
         child: Container(
           height: size.height * 0.15,
           width: size.width * 0.3,
-          decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                    color: PaletaDeCores.branco.withOpacity(0.2),
-                    offset: Offset(-4, -4),
-                    blurRadius: 1),
-                BoxShadow(
-                    color: PaletaDeCores.roxoum.withOpacity(0.2),
-                    offset: Offset(4, 4),
-                    blurRadius: 1)
-              ],
-              borderRadius: BorderRadius.circular(30),
-              color: PaletaDeCores.branco),
+          decoration: StylesDecoration.decorationContainer,
           child: Stack(
             children: <Widget>[
               Positioned(

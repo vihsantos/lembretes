@@ -4,6 +4,7 @@ import 'package:lembretes/Paginas/NovoLembrete/NovoLembrete.dart';
 import 'package:lembretes/Paginas/Tudo/Tudo.dart';
 import 'package:lembretes/componentes/appBar.dart';
 import 'package:lembretes/constantes/PaletaDeCores.dart';
+import 'package:lembretes/constantes/StylesDecoration.dart';
 import 'componentes/IconeHome.dart';
 
 class Home extends StatefulWidget {
@@ -20,11 +21,10 @@ class _HomeState extends State<Home> {
     return Scaffold(
         backgroundColor: PaletaDeCores.background,
         appBar: appBar("Home"),
-        body: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Center(
-              child: Container(
+        body: Center(
+          child: Column(
+            children: <Widget>[
+              Container(
                 height: size.height * 0.16,
                 width: size.width * 0.9,
                 child: SingleChildScrollView(
@@ -51,12 +51,10 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Center(
-              child: Text(
+              SizedBox(
+                height: 10,
+              ),
+              Text(
                 "Que bom te ver de volta!",
                 maxLines: 2,
                 style: TextStyle(
@@ -66,28 +64,13 @@ class _HomeState extends State<Home> {
                   color: PaletaDeCores.preto,
                 ),
               ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Center(
-              child: Container(
+              SizedBox(
+                height: 10,
+              ),
+              Container(
                   width: size.width * 0.9,
                   height: size.height * 0.4,
-                  decoration: BoxDecoration(
-                    color: PaletaDeCores.branco,
-                    borderRadius: BorderRadius.circular(30),
-                    boxShadow: [
-                      BoxShadow(
-                          color: PaletaDeCores.branco.withOpacity(0.2),
-                          offset: Offset(-4, -4),
-                          blurRadius: 1),
-                      BoxShadow(
-                          color: PaletaDeCores.roxoum.withOpacity(0.2),
-                          offset: Offset(4, 4),
-                          blurRadius: 1)
-                    ],
-                  ),
+                  decoration: StylesDecoration.decorationContainer,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -139,8 +122,16 @@ class _HomeState extends State<Home> {
                       ),
                     ],
                   )),
-            )
-          ],
+              SizedBox(
+                height: 10,
+              ),
+              Container(
+                width: size.width * 0.9,
+                height: size.height * 0.21,
+                decoration: StylesDecoration.decorationContainer,
+              )
+            ],
+          ),
         ));
   }
 }
