@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lembretes/Paginas/Detalhar/Detalhar.dart';
 import 'package:lembretes/Paginas/NovoLembrete/NovoLembrete.dart';
 import 'package:lembretes/Paginas/Tudo/Tudo.dart';
 import 'package:lembretes/componentes/CardLembrete.dart';
 import 'package:lembretes/componentes/appBar.dart';
 import 'package:lembretes/constantes/PaletaDeCores.dart';
-import 'package:lembretes/constantes/StylesDecoration.dart';
+import 'package:lembretes/controllers/LembretesController.dart';
+import 'package:lembretes/models/Lembrete.dart';
 import 'componentes/IconeHome.dart';
 import 'package:intl/intl.dart';
+
+import 'componentes/QuantidadeLembretes.dart';
 
 class Home extends StatefulWidget {
   const Home({Key key}) : super(key: key);
@@ -17,6 +21,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  LembretesController ultimo = Get.put(LembretesController());
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -56,7 +62,7 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 20,
                 ),
                 Text(
                   "Que bom te ver de volta!",
@@ -69,65 +75,16 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 SizedBox(
-                  height: 10,
+                  height: 20,
                 ),
-                Container(
-                    width: size.width * 0.9,
-                    height: size.height * 0.4,
-                    decoration: StylesDecoration.decorationContainer,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("TOTAL DE: ",
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontFamily: "Gowun Batang",
-                              color: PaletaDeCores.azultres,
-                            )),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Container(
-                              width: 140,
-                              height: 140,
-                              decoration: BoxDecoration(
-                                  color: PaletaDeCores.background,
-                                  borderRadius: BorderRadius.circular(100),
-                                  boxShadow: [
-                                    BoxShadow(
-                                        color: PaletaDeCores.preto
-                                            .withOpacity(0.2),
-                                        offset: Offset(2, 2),
-                                        blurRadius: 3),
-                                  ]),
-                              child: Center(
-                                child: Text(
-                                  "5",
-                                  style: TextStyle(
-                                      fontSize: 70,
-                                      fontWeight: FontWeight.bold,
-                                      color: PaletaDeCores.azultres),
-                                ),
-                              ),
-                            ),
-                            Text(
-                              "LEMBRETES",
-                              style: TextStyle(
-                                fontSize: 25,
-                                fontFamily: "Gowun Batang",
-                                fontWeight: FontWeight.w900,
-                                color: PaletaDeCores.azultres,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    )),
+                Obx(() {
+                  if (ultimo.loading == true) {
+                    return Center(child: CircularProgressIndicator());
+                  }
+                  return QuantidadeLembretes(valor: ultimo.lembretes.length);
+                }),
                 SizedBox(
-                  height: 10,
+                  height: 20,
                 ),
                 Text(
                   "Lembrete mais recente",
@@ -139,12 +96,22 @@ class _HomeState extends State<Home> {
                     color: PaletaDeCores.preto,
                   ),
                 ),
-                CardLembrete(
-                    titulo: "Qualquer",
-                    descricao:
-                        "descricao, descricao, descricao, descricao, descricao, descricao, descricao",
-                    data: DateFormat('dd/MM/yyyy').format(DateTime.now()),
-                    press: () {})
+                SizedBox(
+                  height: 10,
+                ),
+                Obx(() {
+                  if (ultimo.loading == true) {
+                    return Center(child: CircularProgressIndicator());
+                  }
+                  Lembrete ult = ultimo.lembretes.last;
+                  return CardLembrete(
+                      titulo: ult.titulo,
+                      descricao: ult.descricao,
+                      data: DateFormat('dd/MM/yyyy').format(ult.datal),
+                      press: () {
+                        Get.to(Detalhar(detalhar: ult));
+                      });
+                })
               ],
             ),
           ),
