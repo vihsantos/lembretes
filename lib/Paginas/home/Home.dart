@@ -78,9 +78,6 @@ class _HomeState extends State<Home> {
                   height: 20,
                 ),
                 Obx(() {
-                  if (ultimo.loading == true) {
-                    return Center(child: CircularProgressIndicator());
-                  }
                   return QuantidadeLembretes(valor: ultimo.lembretes.length);
                 }),
                 SizedBox(
