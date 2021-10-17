@@ -37,7 +37,7 @@ class _TudoState extends State<Tudo> {
                     descricao: l.descricao,
                     titulo: l.titulo,
                     press: () {
-                      Get.to(Detalhar(detalhar: l));
+                      Get.to(() => Detalhar(detalhar: l));
                     },
                   );
                 });

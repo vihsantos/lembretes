@@ -131,7 +131,7 @@ class _NovoLembreteState extends State<NovoLembrete> {
                                       TextButton(
                                         child: const Text('Ok'),
                                         onPressed: () {
-                                          Get.offAll(Home());
+                                          Get.offAll(() => Home());
                                         },
                                       ),
                                     ],

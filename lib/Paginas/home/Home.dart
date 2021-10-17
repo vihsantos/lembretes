@@ -45,13 +45,13 @@ class _HomeState extends State<Home> {
                             icon: Icons.add,
                             titulo: 'Adicionar',
                             onpress: () {
-                              Get.to(NovoLembrete());
+                              Get.to(() => NovoLembrete());
                             }),
                         IconeHome(
                             icon: Icons.folder,
                             titulo: 'Lembretes',
                             onpress: () {
-                              Get.to(Tudo());
+                              Get.to(() => Tudo());
                             }),
                         IconeHome(
                             icon: Icons.info_outline,
@@ -62,29 +62,10 @@ class _HomeState extends State<Home> {
                   ),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 Text(
                   "Que bom te ver de volta!",
-                  maxLines: 2,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontFamily: "Gowun Batang",
-                    fontSize: 24,
-                    color: PaletaDeCores.preto,
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Obx(() {
-                  return QuantidadeLembretes(valor: ultimo.lembretes.length);
-                }),
-                SizedBox(
-                  height: 20,
-                ),
-                Text(
-                  "Lembrete mais recente",
                   maxLines: 2,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -98,6 +79,25 @@ class _HomeState extends State<Home> {
                 ),
                 Obx(() {
                   if (ultimo.loading == true) {
+                    return QuantidadeLembretes(valor: 0);
+                  }
+                  return QuantidadeLembretes(valor: ultimo.lembretes.length);
+                }),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  "Lembrete mais recente",
+                  maxLines: 2,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Gowun Batang",
+                    fontSize: 24,
+                    color: PaletaDeCores.preto,
+                  ),
+                ),
+                Obx(() {
+                  if (ultimo.loading == true) {
                     return Center(child: CircularProgressIndicator());
                   }
                   Lembrete ult = ultimo.lembretes.last;
@@ -106,7 +106,7 @@ class _HomeState extends State<Home> {
                       descricao: ult.descricao,
                       data: DateFormat('dd/MM/yyyy').format(ult.datal),
                       press: () {
-                        Get.to(Detalhar(detalhar: ult));
+                        Get.to(() => Detalhar(detalhar: ult));
                       });
                 })
               ],
