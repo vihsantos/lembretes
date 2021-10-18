@@ -4,6 +4,7 @@ import 'package:lembretes/Paginas/Detalhar/Detalhar.dart';
 import 'package:lembretes/Paginas/NovoLembrete/NovoLembrete.dart';
 import 'package:lembretes/Paginas/Tudo/Tudo.dart';
 import 'package:lembretes/componentes/CardLembrete.dart';
+import 'package:lembretes/componentes/CardLembreteVazio.dart';
 import 'package:lembretes/componentes/appBar.dart';
 import 'package:lembretes/constantes/PaletaDeCores.dart';
 import 'package:lembretes/controllers/LembretesController.dart';
@@ -98,7 +99,9 @@ class _HomeState extends State<Home> {
                 ),
                 Obx(() {
                   if (ultimo.loading == true) {
-                    return Center(child: CircularProgressIndicator());
+                    return CardLembreteVazio();
+                  } else if (ultimo.lembretes.length == 0) {
+                    return CardLembreteVazio();
                   }
                   Lembrete ult = ultimo.lembretes.last;
                   return CardLembrete(
