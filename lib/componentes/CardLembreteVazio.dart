@@ -17,10 +17,10 @@ class CardLembreteVazio extends StatelessWidget {
         height: size.height * 0.24,
         decoration: StylesDecoration.decorationCardLembreteVazio,
         child: Center(
-            child: Text('Nenhum lembrete encontrado!',
+            child: Text('Nenhum lembrete encontrado',
                 style: TextStyle(
                   fontFamily: "Gowun Batang",
-                  fontSize: 20,
+                  fontSize: 18,
                   fontWeight: FontWeight.bold,
                   color: PaletaDeCores.preto,
                 ))),
