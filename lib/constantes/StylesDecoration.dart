@@ -36,6 +36,51 @@ class StylesDecoration {
           end: Alignment.bottomRight,
           colors: [PaletaDeCores.azulum, PaletaDeCores.azuldois]));
 
+  static BoxDecoration decorationCardLembreteVazio = BoxDecoration(
+      boxShadow: [
+        BoxShadow(
+          offset: Offset(3, 3),
+          blurRadius: 3,
+          color: PaletaDeCores.rosaum.withOpacity(0.2),
+        ),
+        BoxShadow(
+          offset: Offset(-3, -3),
+          blurRadius: 3,
+          color: PaletaDeCores.azuldois.withOpacity(0.2),
+        )
+      ],
+      borderRadius: BorderRadius.circular(30),
+      gradient: LinearGradient(
+          begin: Alignment.bottomLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            PaletaDeCores.background,
+            PaletaDeCores.branco,
+          ]));
+
+  static BoxDecoration decorationCircleQuantVazio = BoxDecoration(
+      color: PaletaDeCores.background,
+      borderRadius: BorderRadius.circular(100),
+      boxShadow: [
+        BoxShadow(
+            color: PaletaDeCores.preto.withOpacity(0.2),
+            offset: Offset(2, 2),
+            blurRadius: 3),
+      ]);
+
+  static BoxDecoration decorationCircleQuant = BoxDecoration(
+      gradient: LinearGradient(
+          begin: Alignment.centerLeft,
+          end: Alignment.bottomCenter,
+          colors: [PaletaDeCores.azulum, PaletaDeCores.azuldois]),
+      borderRadius: BorderRadius.circular(100),
+      boxShadow: [
+        BoxShadow(
+            color: PaletaDeCores.preto.withOpacity(0.2),
+            offset: Offset(2, 2),
+            blurRadius: 3),
+      ]);
+
   static BoxDecoration decorationCardInput = BoxDecoration(
       borderRadius: BorderRadius.circular(30),
       gradient: LinearGradient(
