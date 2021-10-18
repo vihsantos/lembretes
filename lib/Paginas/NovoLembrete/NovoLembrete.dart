@@ -4,6 +4,7 @@ import 'package:lembretes/Services/LembreteServices.dart';
 import 'package:lembretes/componentes/appBar.dart';
 import 'package:lembretes/constantes/PaletaDeCores.dart';
 import 'package:get/get.dart';
+import 'package:lembretes/constantes/StylesDecoration.dart';
 import 'package:lembretes/models/Lembrete.dart';
 import 'componentes/BotaoSalvar.dart';
 
@@ -34,12 +35,7 @@ class _NovoLembreteState extends State<NovoLembrete> {
             child: Container(
               height: size.height * 0.80,
               width: size.width * 0.9,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  gradient: LinearGradient(
-                      begin: Alignment.centerLeft,
-                      end: Alignment.bottomCenter,
-                      colors: [PaletaDeCores.roxoum, PaletaDeCores.roxodois])),
+              decoration: StylesDecoration.decorationCardInput,
               child: Form(
                   key: _formKey,
                   child: Column(
@@ -50,9 +46,7 @@ class _NovoLembreteState extends State<NovoLembrete> {
                         child: Container(
                           width: size.width * 0.7,
                           height: size.height * 0.06,
-                          decoration: BoxDecoration(
-                              color: PaletaDeCores.branco.withOpacity(0.1),
-                              borderRadius: BorderRadius.circular(25)),
+                          decoration: StylesDecoration.decorationInput,
                           child: Padding(
                             padding: const EdgeInsets.only(
                                 top: 4, bottom: 4, left: 4),
@@ -76,9 +70,7 @@ class _NovoLembreteState extends State<NovoLembrete> {
                         child: Container(
                           width: size.width * 0.85,
                           height: size.height * 0.56,
-                          decoration: BoxDecoration(
-                              color: PaletaDeCores.branco.withOpacity(0.1),
-                              borderRadius: BorderRadius.circular(25)),
+                          decoration: StylesDecoration.decorationInput,
                           child: Padding(
                             padding: const EdgeInsets.only(
                                 top: 4, bottom: 4, left: 4),

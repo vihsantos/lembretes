@@ -35,4 +35,15 @@ class StylesDecoration {
           begin: Alignment.bottomLeft,
           end: Alignment.bottomRight,
           colors: [PaletaDeCores.azulum, PaletaDeCores.azuldois]));
+
+  static BoxDecoration decorationCardInput = BoxDecoration(
+      borderRadius: BorderRadius.circular(30),
+      gradient: LinearGradient(
+          begin: Alignment.centerLeft,
+          end: Alignment.bottomCenter,
+          colors: [PaletaDeCores.roxoum, PaletaDeCores.roxodois]));
+
+  static BoxDecoration decorationInput = BoxDecoration(
+      color: PaletaDeCores.branco.withOpacity(0.1),
+      borderRadius: BorderRadius.circular(25));
 }
