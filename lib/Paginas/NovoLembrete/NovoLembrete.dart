@@ -75,9 +75,10 @@ class _NovoLembreteState extends State<NovoLembrete> {
                             padding: const EdgeInsets.only(
                                 top: 4, bottom: 4, left: 4),
                             child: TextFormField(
+                              maxLength: 255,
                               controller: descricaoController,
                               keyboardType: TextInputType.multiline,
-                              maxLines: 20,
+                              maxLines: 18,
                               decoration: InputDecoration(
                                   border: InputBorder.none,
                                   hintText: "Escreva aqui seu lembrete...",
