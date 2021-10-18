@@ -35,15 +35,9 @@ class QuantidadeLembretes extends StatelessWidget {
                 Container(
                   width: 140,
                   height: 140,
-                  decoration: BoxDecoration(
-                      color: PaletaDeCores.background,
-                      borderRadius: BorderRadius.circular(100),
-                      boxShadow: [
-                        BoxShadow(
-                            color: PaletaDeCores.preto.withOpacity(0.2),
-                            offset: Offset(2, 2),
-                            blurRadius: 3),
-                      ]),
+                  decoration: valor == 0
+                      ? StylesDecoration.decorationCircleQuantVazio
+                      : StylesDecoration.decorationCircleQuant,
                   child: Center(
                     child: Text(
                       "$valor",
