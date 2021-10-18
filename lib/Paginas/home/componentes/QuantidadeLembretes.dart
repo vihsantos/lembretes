@@ -15,7 +15,7 @@ class QuantidadeLembretes extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Container(
         width: size.width * 0.9,
-        height: size.height * 0.4,
+        height: size.height * 0.35,
         decoration: StylesDecoration.decorationContainer,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
