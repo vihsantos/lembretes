@@ -6,7 +6,7 @@ import 'package:lembretes/constantes/PaletaDeCores.dart';
 import 'package:get/get.dart';
 import 'package:lembretes/constantes/StylesDecoration.dart';
 import 'package:lembretes/models/Lembrete.dart';
-import 'componentes/BotaoSalvar.dart';
+import '../../componentes/BotaoSalvar.dart';
 
 class NovoLembrete extends StatefulWidget {
   const NovoLembrete({Key key}) : super(key: key);
