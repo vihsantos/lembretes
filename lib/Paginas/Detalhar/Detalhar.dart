@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lembretes/componentes/appBar.dart';
+import 'package:get/get.dart';
+import 'package:lembretes/Paginas/Editar/Editar.dart';
 import 'package:lembretes/constantes/PaletaDeCores.dart';
 import 'package:lembretes/models/Lembrete.dart';
 import 'package:intl/intl.dart';
@@ -12,7 +13,28 @@ class Detalhar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: PaletaDeCores.background,
-        appBar: appBar("Detalhes"),
+        appBar: AppBar(
+          actions: [
+            IconButton(
+              icon: Icon(Icons.edit),
+              onPressed: () {
+                Get.to(() => Editar(
+                      editarLembrete: detalhar,
+                    ));
+              },
+            ),
+          ],
+          backgroundColor: PaletaDeCores.background,
+          elevation: 0,
+          centerTitle: true,
+          title: Text("Detalhes",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontFamily: "Gowun Batang",
+                fontSize: 32,
+                color: PaletaDeCores.preto,
+              )),
+        ),
         body: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
