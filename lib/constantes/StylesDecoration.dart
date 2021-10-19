@@ -88,6 +88,13 @@ class StylesDecoration {
           end: Alignment.bottomCenter,
           colors: [PaletaDeCores.roxoum, PaletaDeCores.roxodois]));
 
+  static BoxDecoration decorationCardInputEditar = BoxDecoration(
+      borderRadius: BorderRadius.circular(30),
+      gradient: LinearGradient(
+          begin: Alignment.centerLeft,
+          end: Alignment.bottomCenter,
+          colors: [PaletaDeCores.rosaum, PaletaDeCores.rosaum.withGreen(10)]));
+
   static BoxDecoration decorationInput = BoxDecoration(
       color: PaletaDeCores.branco.withOpacity(0.1),
       borderRadius: BorderRadius.circular(25));
