@@ -16,7 +16,6 @@ class Tudo extends StatefulWidget {
 }
 
 class _TudoState extends State<Tudo> {
-  final LembretesController lembretesController = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,24 +23,27 @@ class _TudoState extends State<Tudo> {
       backgroundColor: PaletaDeCores.background,
       body: Column(
         children: [
-          Expanded(child: Obx(() {
-            if (lembretesController.loading == true) {
-              return Center(child: CircularProgressIndicator());
-            }
-            return ListView.builder(
-                itemCount: lembretesController.lembretes.length,
-                itemBuilder: (context, index) {
-                  Lembrete l = lembretesController.lembretes[index];
-                  return CardLembrete(
-                    data: DateFormat('dd/MM/yyyy').format(l.datal),
-                    descricao: l.descricao,
-                    titulo: l.titulo,
-                    press: () {
-                      Get.to(() => Detalhar(detalhar: l));
-                    },
-                  );
-                });
-          }))
+          Expanded(
+              child: GetBuilder<LembretesController>(
+                  init: LembretesController(),
+                  builder: (controller) {
+                    if (controller.loading == true) {
+                      return Center(child: CircularProgressIndicator());
+                    }
+                    return ListView.builder(
+                        itemCount: controller.lembretes.length,
+                        itemBuilder: (context, index) {
+                          Lembrete l = controller.lembretes[index];
+                          return CardLembrete(
+                            data: DateFormat('dd/MM/yyyy').format(l.datal),
+                            descricao: l.descricao,
+                            titulo: l.titulo,
+                            press: () {
+                              Get.to(() => Detalhar(detalhar: l));
+                            },
+                          );
+                        });
+                  }))
         ],
       ),
     );
