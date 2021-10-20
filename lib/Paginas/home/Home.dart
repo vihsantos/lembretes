@@ -22,8 +22,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  LembretesController ultimo = Get.put(LembretesController());
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -78,12 +76,15 @@ class _HomeState extends State<Home> {
                 SizedBox(
                   height: 10,
                 ),
-                Obx(() {
-                  if (ultimo.loading == true) {
-                    return QuantidadeLembretes(valor: 0);
-                  }
-                  return QuantidadeLembretes(valor: ultimo.lembretes.length);
-                }),
+                GetBuilder<LembretesController>(
+                    init: LembretesController(),
+                    builder: (controller) {
+                      if (controller.loading == true) {
+                        return QuantidadeLembretes(valor: 0);
+                      }
+                      return QuantidadeLembretes(
+                          valor: controller.lembretes.length);
+                    }),
                 SizedBox(
                   height: 10,
                 ),
@@ -97,13 +98,13 @@ class _HomeState extends State<Home> {
                     color: PaletaDeCores.preto,
                   ),
                 ),
-                Obx(() {
-                  if (ultimo.loading == true) {
+                GetBuilder<LembretesController>(builder: (controller) {
+                  if (controller.loading == true) {
                     return CardLembreteVazio();
-                  } else if (ultimo.lembretes.length == 0) {
+                  } else if (controller.lembretes.length == 0) {
                     return CardLembreteVazio();
                   }
-                  Lembrete ult = ultimo.lembretes.last;
+                  Lembrete ult = controller.lembretes.last;
                   return CardLembrete(
                       titulo: ult.titulo,
                       descricao: ult.descricao,
