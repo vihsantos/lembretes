@@ -5,6 +5,7 @@ import 'package:lembretes/componentes/appBar.dart';
 import 'package:lembretes/constantes/PaletaDeCores.dart';
 import 'package:get/get.dart';
 import 'package:lembretes/constantes/StylesDecoration.dart';
+import 'package:lembretes/controllers/LembretesController.dart';
 import 'package:lembretes/models/Lembrete.dart';
 import '../../componentes/BotaoSalvar.dart';
 
@@ -98,19 +99,12 @@ class _NovoLembreteState extends State<NovoLembrete> {
                         child: Center(
                           child: BotaoSalvar(
                             press: () {
-                              DateTime data = DateTime.now();
-
-                              Lembrete novo = new Lembrete(
-                                  titulo: tituloController.text,
-                                  descricao: descricaoController.text,
-                                  datal: data);
-
-                              LembreteServices.enviarLembrete(novo);
+                              LembretesController().enviarLembrete(
+                                  tituloController.text,
+                                  descricaoController.text);
 
                               tituloController.clear();
                               descricaoController.clear();
-
-                              data = null;
 
                               return showDialog<void>(
                                 context: context,
