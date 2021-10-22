@@ -7,6 +7,7 @@ import 'package:lembretes/componentes/CardLembrete.dart';
 import 'package:lembretes/componentes/CardLembreteVazio.dart';
 import 'package:lembretes/componentes/appBar.dart';
 import 'package:lembretes/constantes/PaletaDeCores.dart';
+import 'package:lembretes/constantes/StylesText.dart';
 import 'package:lembretes/controllers/LembretesController.dart';
 import 'package:lembretes/models/Lembrete.dart';
 import 'componentes/IconeHome.dart';
@@ -66,12 +67,7 @@ class _HomeState extends State<Home> {
                 Text(
                   "Que bom te ver de volta!",
                   maxLines: 2,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontFamily: "Gowun Batang",
-                    fontSize: 24,
-                    color: PaletaDeCores.preto,
-                  ),
+                  style: StylesText.tituloHomeStyle,
                 ),
                 SizedBox(
                   height: 10,
@@ -88,16 +84,8 @@ class _HomeState extends State<Home> {
                 SizedBox(
                   height: 10,
                 ),
-                Text(
-                  "Lembrete mais recente",
-                  maxLines: 2,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontFamily: "Gowun Batang",
-                    fontSize: 24,
-                    color: PaletaDeCores.preto,
-                  ),
-                ),
+                Text("Lembrete mais recente",
+                    maxLines: 2, style: StylesText.tituloHomeStyle),
                 GetBuilder<LembretesController>(builder: (controller) {
                   if (controller.loading == true) {
                     return CardLembreteVazio();

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lembretes/constantes/PaletaDeCores.dart';
 import 'package:lembretes/constantes/StylesDecoration.dart';
+import 'package:lembretes/constantes/StylesText.dart';
 
 class CardLembrete extends StatelessWidget {
   const CardLembrete({
@@ -31,16 +32,9 @@ class CardLembrete extends StatelessWidget {
             child: Stack(
               children: <Widget>[
                 Positioned(
-                  top: 15,
-                  left: 15,
-                  child: Text(titulo,
-                      style: TextStyle(
-                        fontFamily: "Gowun Batang",
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: PaletaDeCores.preto,
-                      )),
-                ),
+                    top: 15,
+                    left: 15,
+                    child: Text(titulo, style: StylesText.tituloCardStyle)),
                 Positioned(
                   top: 60,
                   left: 15,
@@ -50,9 +44,7 @@ class CardLembrete extends StatelessWidget {
                     child: Text(descricao,
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                            color: PaletaDeCores.preto.withOpacity(0.6),
-                            fontStyle: FontStyle.italic)),
+                        style: StylesText.descricaoCardStyle),
                   ),
                 ),
                 Positioned(
@@ -60,9 +52,7 @@ class CardLembrete extends StatelessWidget {
                     left: 15,
                     child: Text(
                       data,
-                      style: TextStyle(
-                          color: PaletaDeCores.preto.withOpacity(0.5),
-                          fontWeight: FontWeight.bold),
+                      style: StylesText.dataCardStyle,
                     ))
               ],
             ),
