@@ -4,6 +4,7 @@ import 'package:lembretes/Paginas/Editar/Editar.dart';
 import 'package:lembretes/constantes/PaletaDeCores.dart';
 import 'package:lembretes/models/Lembrete.dart';
 import 'package:intl/intl.dart';
+import 'package:lembretes/constantes/StylesText.dart';
 
 class Detalhar extends StatelessWidget {
   final Lembrete detalhar;
@@ -27,13 +28,7 @@ class Detalhar extends StatelessWidget {
           backgroundColor: PaletaDeCores.background,
           elevation: 0,
           centerTitle: true,
-          title: Text("Detalhes",
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontFamily: "Gowun Batang",
-                fontSize: 32,
-                color: PaletaDeCores.preto,
-              )),
+          title: Text("Detalhes", style: StylesText.tituloAppBarStyle),
         ),
         body: SingleChildScrollView(
           child: Column(
