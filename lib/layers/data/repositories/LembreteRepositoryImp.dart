@@ -10,4 +10,10 @@ class LembreteRepositoryImp implements LembreteRepository {
   @override
   Future<List<Lembrete>> getLembretes() async =>
       lembretesDataSource.getLembretes();
+
+  @override
+  Future<void> postLembrete(Lembrete lembrete) {
+    // TODO: implement postLembrete
+    throw UnimplementedError();
+  }
 }
