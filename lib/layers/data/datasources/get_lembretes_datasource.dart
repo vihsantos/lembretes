@@ -1,5 +1,6 @@
-import 'package:lembretes/layers/domain/entities/lembrete.dart';
+import 'package:lembretes/layers/data/dto/lembrete_dto.dart';
 
 abstract class GetLembretesDataSource {
-  Future<List<Lembrete>> getLembretes();
+  Future<List<LembreteDto>> getLembretes();
+  Future<void> postLembrete(LembreteDto lembrete);
 }

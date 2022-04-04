@@ -6,7 +6,7 @@ import '../get_lembretes_datasource.dart';
 
 class GetLembretesDataSourceImp extends GetLembretesDataSource {
   @override
-  Future<List<Lembrete>> getLembretes() async {
+  Future<List<LembreteDto>> getLembretes() async {
     var response =
         await http.get(Uri.parse('http://192.168.2.104:3000/lembretes/'));
 
@@ -19,5 +19,11 @@ class GetLembretesDataSourceImp extends GetLembretesDataSource {
     } else {
       return null;
     }
+  }
+
+  @override
+  Future<void> postLembrete(LembreteDto lembrete) {
+    // TODO: implement postLembrete
+    throw UnimplementedError();
   }
 }
