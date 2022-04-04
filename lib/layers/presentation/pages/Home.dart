@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:lembretes/layers/data/datasources/remote/get_lembretes_datasource_imp.dart';
 import 'package:lembretes/layers/data/repositories/LembreteRepositoryImp.dart';
@@ -18,10 +17,23 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Center(
-        child: Text(_controller.lembretes[0].titulo),
-      ),
-    );
+        backgroundColor: Color(0xFFBEB09C),
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          title: Text(
+            "Home Page".toUpperCase(),
+            style: TextStyle(
+                color: Color.fromARGB(255, 36, 15, 3),
+                fontWeight: FontWeight.bold),
+          ),
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [Text("Olá")],
+        ));
   }
 }
