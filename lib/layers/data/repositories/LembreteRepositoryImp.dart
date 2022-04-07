@@ -12,8 +12,6 @@ class LembreteRepositoryImp implements LembreteRepository {
       lembretesDataSource.getLembretes();
 
   @override
-  Future<void> postLembrete(Lembrete lembrete) {
-    // TODO: implement postLembrete
-    throw UnimplementedError();
-  }
+  Future<void> postLembrete(Lembrete lembrete) async =>
+      lembretesDataSource.postLembrete(lembrete);
 }

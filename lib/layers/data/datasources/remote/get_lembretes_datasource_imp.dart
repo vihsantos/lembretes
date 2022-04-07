@@ -1,7 +1,6 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:lembretes/layers/data/dto/lembrete_dto.dart';
-import '../../../domain/entities/lembrete.dart';
 import '../get_lembretes_datasource.dart';
 
 class GetLembretesDataSourceImp extends GetLembretesDataSource {
@@ -22,8 +21,13 @@ class GetLembretesDataSourceImp extends GetLembretesDataSource {
   }
 
   @override
-  Future<void> postLembrete(LembreteDto lembrete) {
-    // TODO: implement postLembrete
-    throw UnimplementedError();
+  Future<void> postLembrete(LembreteDto lembrete) async {
+    var uri = Uri.parse('http://192.168.2.104:3000/lembretes/');
+
+    var response = await http.post(uri,
+        headers: {"Content-Type": "application/json"},
+        body: json.encode(lembrete));
+
+    if (response.statusCode == 200) print("Ok!!");
   }
 }
