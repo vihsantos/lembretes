@@ -5,6 +5,8 @@ import 'package:lembretes/layers/domain/usecases/GetLembretes/get_lembretes_usec
 import 'package:lembretes/layers/presentation/controller/LembreteController.dart';
 import 'package:lembretes/layers/presentation/utils/PaletaDeCores.dart';
 
+import '../utils/cards/Cardlembrete.dart';
+
 class Home extends StatefulWidget {
   const Home({Key key}) : super(key: key);
 
@@ -132,7 +134,7 @@ class _HomeState extends State<Home> {
                 decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
-                        color: PaletaDeCores.branco.withOpacity(0.2),
+                        color: PaletaDeCores.preto.withOpacity(0.1),
                         offset: Offset(6, 6),
                         blurRadius: 10)
                   ],
@@ -164,14 +166,28 @@ class _HomeState extends State<Home> {
                     fontWeight: FontWeight.w400),
               ),
               SizedBox(height: size.height * 0.025),
+              CardLembrete(),
+              SizedBox(height: size.height * 0.025),
               Container(
-                decoration: BoxDecoration(
-                  color: PaletaDeCores.branco,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                width: size.width * 0.98,
-                height: size.height * 0.25,
-              )
+                  child: Center(
+                child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.not_interested,
+                        size: 72,
+                        color: PaletaDeCores.preto,
+                      ),
+                      Text(
+                        "Não existe mais lembretes!",
+                        style: TextStyle(
+                            fontSize: 18,
+                            color: PaletaDeCores.preto,
+                            fontWeight: FontWeight.w500),
+                      )
+                    ]),
+              ))
             ],
           ),
         ));
