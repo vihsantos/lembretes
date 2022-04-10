@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:lembretes/layers/data/datasources/remote/get_lembretes_datasource_imp.dart';
 import 'package:lembretes/layers/data/repositories/LembreteRepositoryImp.dart';
+import 'package:lembretes/layers/domain/entities/lembrete.dart';
 import 'package:lembretes/layers/domain/usecases/GetLembretes/get_lembretes_usecase_imp.dart';
 import 'package:lembretes/layers/presentation/controller/LembreteController.dart';
 import 'package:lembretes/layers/presentation/utils/PaletaDeCores.dart';
-
-import '../utils/cards/Cardlembrete.dart';
+import '../utils/cards/BannerDivider.dart';
+import '../utils/cards/card_lembrete.dart';
+import '../utils/cards/SemLembretes.dart';
+import 'ConfigPage.dart';
+import 'FavoritePage.dart';
 
 class Home extends StatefulWidget {
   const Home({Key key}) : super(key: key);
@@ -22,6 +26,13 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
+    Lembrete a = new Lembrete(
+        id: 1,
+        titulo: "Titulo qualquer",
+        descricao:
+            "Qualquer titulo.... Um mergulhador encontra uma perna decepada. Os agentes tentam identificar a que corpo ela pertence, levando-os a um caso de um oficial morto há dois anos. Qualquer titulo.... Um mergulhador encontra uma perna decepada. Os agentes tentam identificar a que corpo ela pertence, levando-os a um caso de um oficial morto há dois anos. Qualquer titulo.... Um mergulhador encontra uma perna decepada. Os agentes tentam identificar a que corpo ela pertence, levando-os a um caso de um oficial morto há dois anos. Qualquer titulo.... Um mergulhador encontra uma perna decepada. Os agentes tentam identificar a que corpo ela pertence, levando-os a um caso de um oficial morto há dois anos. Qualquer titulo.... Um mergulhador encontra uma perna decepada. Os agentes tentam identificar a que corpo ela pertence, levando-os a um caso de um oficial morto há dois anos.",
+        datal: DateTime.now());
+
     return Scaffold(
         backgroundColor: PaletaDeCores.background,
         appBar: AppBar(
@@ -36,14 +47,20 @@ class _HomeState extends State<Home> {
           ),
           actions: [
             IconButton(
-                onPressed: null,
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => FavoritePage()));
+                },
                 icon: Icon(
                   Icons.favorite,
                   color: PaletaDeCores.roxo,
                   size: 28,
                 )),
             IconButton(
-                onPressed: null,
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => ConfigPage()));
+                },
                 icon:
                     Icon(Icons.settings, color: PaletaDeCores.roxo, size: 28)),
           ],
@@ -130,33 +147,7 @@ class _HomeState extends State<Home> {
                 ],
               ),
               SizedBox(height: size.height * 0.025),
-              Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                        color: PaletaDeCores.preto.withOpacity(0.1),
-                        offset: Offset(6, 6),
-                        blurRadius: 10)
-                  ],
-                  image: DecorationImage(
-                      opacity: 0.2,
-                      fit: BoxFit.cover,
-                      image: AssetImage("assets/images/background.png")),
-                  borderRadius: BorderRadius.circular(20),
-                  color: PaletaDeCores.roxo.withOpacity(0.8),
-                ),
-                width: size.width * 0.95,
-                height: size.height * 0.10,
-                child: Center(
-                  child: Text(
-                    "    Lorem ipsum dolor sit amet, consectetur \n adipiscing elit ut aliquam.",
-                    style: TextStyle(
-                        fontStyle: FontStyle.italic,
-                        fontWeight: FontWeight.w300,
-                        color: PaletaDeCores.branco),
-                  ),
-                ),
-              ),
+              BannerDivider(),
               SizedBox(height: size.height * 0.025),
               Text(
                 "Lembretes recentes:",
@@ -166,28 +157,11 @@ class _HomeState extends State<Home> {
                     fontWeight: FontWeight.w400),
               ),
               SizedBox(height: size.height * 0.025),
-              CardLembrete(),
+              CardLembrete(
+                lembrete: a,
+              ),
               SizedBox(height: size.height * 0.025),
-              Container(
-                  child: Center(
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.not_interested,
-                        size: 72,
-                        color: PaletaDeCores.preto,
-                      ),
-                      Text(
-                        "Não existe mais lembretes!",
-                        style: TextStyle(
-                            fontSize: 18,
-                            color: PaletaDeCores.preto,
-                            fontWeight: FontWeight.w500),
-                      )
-                    ]),
-              ))
+              SemLembretes()
             ],
           ),
         ));
