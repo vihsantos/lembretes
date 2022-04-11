@@ -6,6 +6,7 @@ import 'package:lembretes/layers/domain/usecases/GetLembretes/get_lembretes_usec
 import 'package:lembretes/layers/presentation/controller/LembreteController.dart';
 import 'package:lembretes/layers/presentation/utils/PaletaDeCores.dart';
 import '../utils/cards/BannerDivider.dart';
+import '../utils/cards/RowQuantidade.dart';
 import '../utils/cards/card_lembrete.dart';
 import '../utils/cards/SemLembretes.dart';
 import 'ConfigPage.dart';
@@ -81,71 +82,7 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Row(
-                children: <Widget>[
-                  Container(
-                      decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                                color: PaletaDeCores.preto.withOpacity(0.10),
-                                offset: Offset(6, 6),
-                                blurRadius: 10)
-                          ],
-                          color: PaletaDeCores.branco,
-                          borderRadius: BorderRadius.circular(20)),
-                      height: size.height * 0.15,
-                      width: size.width * 0.48,
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "0",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 28,
-                                  color: PaletaDeCores.preto),
-                            ),
-                            Text(
-                              "lembrete",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  color: PaletaDeCores.preto,
-                                  fontSize: 18),
-                            )
-                          ])),
-                  SizedBox(width: size.width * 0.06),
-                  Container(
-                      decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                                color: PaletaDeCores.preto.withOpacity(0.10),
-                                offset: Offset(6, 6),
-                                blurRadius: 10)
-                          ],
-                          color: PaletaDeCores.branco,
-                          borderRadius: BorderRadius.circular(20)),
-                      height: size.height * 0.15,
-                      width: size.width * 0.40,
-                      child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "0",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 28,
-                                  color: PaletaDeCores.preto),
-                            ),
-                            Text(
-                              "favoritos",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  color: PaletaDeCores.preto,
-                                  fontSize: 18),
-                            )
-                          ])),
-                ],
-              ),
+              RowQuantidade(),
               SizedBox(height: size.height * 0.025),
               BannerDivider(),
               SizedBox(height: size.height * 0.025),
