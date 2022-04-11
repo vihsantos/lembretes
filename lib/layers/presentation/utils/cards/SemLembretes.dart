@@ -21,7 +21,7 @@ class SemLembretes extends StatelessWidget {
               color: PaletaDeCores.preto,
             ),
             Text(
-              "Não existe mais lembretes!",
+              "Sem lembretes para exibir!",
               style: TextStyle(
                   fontSize: 18,
                   color: PaletaDeCores.preto,
