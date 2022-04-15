@@ -3,6 +3,7 @@ class Lembrete {
   final String titulo;
   final String descricao;
   final DateTime datal;
+  final bool favorito;
 
-  Lembrete({this.id, this.titulo, this.descricao, this.datal});
+  Lembrete({this.id, this.titulo, this.descricao, this.datal, this.favorito});
 }

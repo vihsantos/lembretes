@@ -6,13 +6,20 @@ class LembreteDto extends Lembrete {
   String titulo;
   String descricao;
   DateTime datal;
+  bool favorito;
 
   LembreteDto(
       {@required this.id,
       @required this.titulo,
       @required this.descricao,
-      @required this.datal})
-      : super(id: id, titulo: titulo, descricao: descricao, datal: datal);
+      @required this.datal,
+      @required this.favorito})
+      : super(
+            id: id,
+            titulo: titulo,
+            descricao: descricao,
+            datal: datal,
+            favorito: favorito);
 
   Map toMap() {
     return {
@@ -20,14 +27,17 @@ class LembreteDto extends Lembrete {
       "titulo": this.titulo,
       "descricao": this.descricao,
       "datal": this.datal,
+      "favorito": this.favorito,
     };
   }
 
   static LembreteDto fromMap(Map map) {
     return LembreteDto(
-        id: map['id'],
-        titulo: map['titulo'],
-        descricao: map['descricao'],
-        datal: DateTime.parse(map['datal']));
+      id: map['id'],
+      titulo: map['titulo'],
+      descricao: map['descricao'],
+      datal: DateTime.parse(map['datal']),
+      favorito: map['favorito'],
+    );
   }
 }
