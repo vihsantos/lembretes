@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lembretes/layers/data/datasources/remote/get_lembretes_datasource_imp.dart';
-import 'package:lembretes/layers/data/repositories/LembreteRepositoryImp.dart';
 import 'package:lembretes/layers/domain/entities/lembrete.dart';
-import 'package:lembretes/layers/domain/usecases/GetLembretes/get_lembretes_usecase_imp.dart';
-import 'package:lembretes/layers/presentation/controller/LembreteController.dart';
 import 'package:lembretes/layers/presentation/utils/PaletaDeCores.dart';
 import '../utils/cards/BannerDivider.dart';
 import '../utils/cards/RowQuantidade.dart';
@@ -20,8 +16,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  LembreteController _controller = LembreteController(GetLembreteUseCaseImp(
-      LembreteRepositoryImp(GetLembretesDataSourceImp())));
+  // LembreteController _controller = LembreteController(GetLembreteUseCaseImp(
+  //     LembreteRepositoryImp(GetLembretesDataSourceImp())));
 
   @override
   Widget build(BuildContext context) {
@@ -64,16 +60,6 @@ class _HomeState extends State<Home> {
                 },
                 icon:
                     Icon(Icons.settings, color: PaletaDeCores.roxo, size: 28)),
-          ],
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: PaletaDeCores.branco,
-          selectedItemColor: PaletaDeCores.roxo,
-          unselectedItemColor: PaletaDeCores.preto,
-          items: [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-            BottomNavigationBarItem(icon: Icon(Icons.add), label: "Criar"),
-            BottomNavigationBarItem(icon: Icon(Icons.list), label: "Listar"),
           ],
         ),
         body: Padding(
