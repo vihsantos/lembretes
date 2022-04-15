@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'layers/presentation/pages/Home.dart';
+import 'package:lembretes/layers/presentation/pages/MainPage.dart';
 
 void main() {
   runApp(MyApp());
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Lembretes",
-      home: Home(),
+      home: MainPage(),
     );
   }
 }
