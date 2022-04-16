@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:lembretes/layers/presentation/pages/ConfigPage.dart';
 import 'package:lembretes/layers/presentation/pages/CriarLembrete.dart';
 import 'package:lembretes/layers/presentation/pages/Home.dart';
+import 'package:lembretes/layers/presentation/pages/TodosLembretes.dart';
 import 'package:lembretes/layers/presentation/utils/PaletaDeCores.dart';
 
 class MainPage extends StatefulWidget {
@@ -17,7 +17,7 @@ class _MainPageState extends State<MainPage> {
   final paginas = [
     Home(),
     CriarLembrete(),
-    ConfigPage(),
+    TodosLembretes(),
   ];
 
   @override
