@@ -9,7 +9,7 @@ class LembreteDto extends Lembrete {
   bool favorito;
 
   LembreteDto(
-      {@required this.id,
+      {this.id,
       @required this.titulo,
       @required this.descricao,
       @required this.datal,
@@ -23,10 +23,9 @@ class LembreteDto extends Lembrete {
 
   Map toMap() {
     return {
-      "id": this.id,
       "titulo": this.titulo,
       "descricao": this.descricao,
-      "datal": this.datal,
+      "datal": this.datal.toIso8601String(),
       "favorito": this.favorito,
     };
   }
