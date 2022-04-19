@@ -1,9 +1,9 @@
-import 'package:lembretes/layers/data/datasources/get_lembretes_datasource.dart';
+import 'package:lembretes/layers/data/datasources/lembretes_datasource.dart';
 import 'package:lembretes/layers/domain/entities/lembrete.dart';
 import 'package:lembretes/layers/domain/repositories/LembreteRepository.dart';
 
 class LembreteRepositoryImp implements LembreteRepository {
-  final GetLembretesDataSource lembretesDataSource;
+  final LembretesDataSource lembretesDataSource;
 
   LembreteRepositoryImp(this.lembretesDataSource);
 
@@ -14,4 +14,12 @@ class LembreteRepositoryImp implements LembreteRepository {
   @override
   Future<void> postLembrete(Lembrete lembrete) async =>
       lembretesDataSource.postLembrete(lembrete);
+
+  @override
+  Future<List<Lembrete>> buscarFavoritos() async =>
+      lembretesDataSource.buscarFavoritos();
+
+  @override
+  Future<void> deletarLembrete(int id) async =>
+      lembretesDataSource.deletarLembrete(id);
 }
