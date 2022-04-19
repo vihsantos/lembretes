@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:lembretes/layers/data/datasources/remote/lembretes_datasource_imp.dart';
+import 'package:lembretes/layers/data/dto/lembrete_dto.dart';
+import 'package:lembretes/layers/data/repositories/LembreteRepositoryImp.dart';
 import 'package:lembretes/layers/domain/entities/lembrete.dart';
+import 'package:lembretes/layers/domain/usecases/GetFavoritos/get_favoritos_usecase_imp.dart';
+import 'package:lembretes/layers/domain/usecases/GetLembretes/get_lembretes_usecase_imp.dart';
+import 'package:lembretes/layers/presentation/controller/home_controller.dart';
 import 'package:lembretes/layers/presentation/utils/PaletaDeCores.dart';
 import '../utils/cards/BannerDivider.dart';
 import '../utils/cards/RowQuantidade.dart';
@@ -22,6 +28,10 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    HomeController _controller = new HomeController(
+        GetLembreteUseCaseImp(LembreteRepositoryImp(LembretesDataSourceImp())),
+        GetFavoritosUseCaseImp(
+            LembreteRepositoryImp(LembretesDataSourceImp())));
 
     Lembrete a = new Lembrete(
         id: 1,
@@ -64,28 +74,56 @@ class _HomeState extends State<Home> {
         ),
         body: Padding(
           padding: const EdgeInsets.only(left: 10, right: 10),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              RowQuantidade(),
-              SizedBox(height: size.height * 0.025),
-              BannerDivider(),
-              SizedBox(height: size.height * 0.025),
-              Text(
-                "Lembretes recentes:",
-                style: TextStyle(
-                    color: PaletaDeCores.preto,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w400),
-              ),
-              SizedBox(height: size.height * 0.025),
-              CardLembrete(
-                lembrete: a,
-              ),
-              SizedBox(height: size.height * 0.025),
-              SemLembretes()
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                RowQuantidade(),
+                SizedBox(height: size.height * 0.025),
+                BannerDivider(),
+                SizedBox(height: size.height * 0.025),
+                Text(
+                  "Lembretes recentes:",
+                  style: TextStyle(
+                      color: PaletaDeCores.preto,
+                      fontSize: 20,
+                      fontWeight: FontWeight.w400),
+                ),
+                SizedBox(height: size.height * 0.025),
+                ValueListenableBuilder(
+                  valueListenable: _controller.loadingApi,
+                  builder: (_, loading, __) {
+                    if (loading) {
+                      return Center(child: CircularProgressIndicator());
+                    }
+
+                    if (_controller.quantLembretes == null) {
+                      return SemLembretes();
+                    }
+
+                    if (_controller.quantLembretes < 1) {
+                      return Column(
+                        children: [
+                          CardLembrete(lembrete: _controller.lembretes[0]),
+                          SemLembretes()
+                        ],
+                      );
+                    }
+
+                    return ListView.builder(
+                        scrollDirection: Axis.vertical,
+                        shrinkWrap: true,
+                        itemCount: 2,
+                        itemBuilder: (context, index) {
+                          LembreteDto lembrete = _controller.lembretes[index];
+
+                          return CardLembrete(lembrete: lembrete);
+                        });
+                  },
+                )
+              ],
+            ),
           ),
         ));
   }
