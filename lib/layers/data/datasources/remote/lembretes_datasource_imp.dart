@@ -34,7 +34,7 @@ class LembretesDataSourceImp extends LembretesDataSource {
   @override
   Future<List<LembreteDto>> buscarFavoritos() async {
     var response = await http
-        .get(Uri.parse('http://192.168.2.104:3000/lembretes/favoritos/'));
+        .get(Uri.parse('http://192.168.2.104:3000/lembretes/favoritos'));
 
     if (response.statusCode == 200) {
       Iterable lista = json.decode(response.body);
