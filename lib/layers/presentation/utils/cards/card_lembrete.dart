@@ -76,9 +76,33 @@ class CardLembrete extends StatelessWidget {
                         color: PaletaDeCores.roxo,
                       )),
                   IconButton(
-                      onPressed: null,
+                      onPressed: () {
+                        showDialog(
+                            context: context,
+                            builder: (_) => AlertDialog(
+                                  title: Center(
+                                    child: Text(
+                                      "Excluir",
+                                      style: TextStyle(
+                                          color: PaletaDeCores.preto,
+                                          fontSize: 16),
+                                    ),
+                                  ),
+                                  content: Text(
+                                      "Deseja mesmo excluir este lembrete?"),
+                                  actions: [
+                                    TextButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: Text("Não")),
+                                    TextButton(
+                                        onPressed: null, child: Text("Sim"))
+                                  ],
+                                ));
+                      },
                       icon: Icon(
-                        Icons.edit,
+                        Icons.delete,
                         color: PaletaDeCores.roxo,
                       )),
                 ],
