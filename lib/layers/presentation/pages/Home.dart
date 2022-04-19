@@ -22,9 +22,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  // LembreteController _controller = LembreteController(GetLembreteUseCaseImp(
-  //     LembreteRepositoryImp(GetLembretesDataSourceImp())));
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -32,13 +29,6 @@ class _HomeState extends State<Home> {
         GetLembreteUseCaseImp(LembreteRepositoryImp(LembretesDataSourceImp())),
         GetFavoritosUseCaseImp(
             LembreteRepositoryImp(LembretesDataSourceImp())));
-
-    Lembrete a = new Lembrete(
-        id: 1,
-        titulo: "Titulo qualquer",
-        descricao:
-            "Qualquer titulo.... Um mergulhador encontra uma perna decepada. Os agentes tentam identificar a que corpo ela pertence, levando-os a um caso de um oficial morto há dois anos. Qualquer titulo.... Um mergulhador encontra uma perna decepada. Os agentes tentam identificar a que corpo ela pertence, levando-os a um caso de um oficial morto há dois anos. Qualquer titulo.... Um mergulhador encontra uma perna decepada. Os agentes tentam identificar a que corpo ela pertence, levando-os a um caso de um oficial morto há dois anos. Qualquer titulo.... Um mergulhador encontra uma perna decepada. Os agentes tentam identificar a que corpo ela pertence, levando-os a um caso de um oficial morto há dois anos. Qualquer titulo.... Um mergulhador encontra uma perna decepada. Os agentes tentam identificar a que corpo ela pertence, levando-os a um caso de um oficial morto há dois anos.",
-        datal: DateTime.now());
 
     return Scaffold(
         backgroundColor: PaletaDeCores.background,
@@ -95,7 +85,10 @@ class _HomeState extends State<Home> {
                   valueListenable: _controller.loadingApi,
                   builder: (_, loading, __) {
                     if (loading) {
-                      return Center(child: CircularProgressIndicator());
+                      return Padding(
+                        padding: const EdgeInsets.only(top: 60),
+                        child: Center(child: CircularProgressIndicator()),
+                      );
                     }
 
                     if (_controller.quantLembretes == null) {
