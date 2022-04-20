@@ -48,8 +48,12 @@ class LembretesDataSourceImp extends LembretesDataSource {
   }
 
   @override
-  Future<void> deletarLembrete(int id) {
-    // TODO: implement deletarLembrete
-    throw UnimplementedError();
+  Future<void> deletarLembrete(int id) async {
+    var uri = Uri.parse('http://192.168.2.104:3000/lembretes/$id');
+
+    var response =
+        await http.delete(uri, headers: {"Content-Type": "application/json"});
+
+    if (response.statusCode == 200) print("Ok!!");
   }
 }
