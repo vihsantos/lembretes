@@ -1,11 +1,7 @@
 import 'package:intl/intl.dart';
 
 import 'package:flutter/material.dart';
-import 'package:lembretes/layers/data/datasources/remote/lembretes_datasource_imp.dart';
-import 'package:lembretes/layers/data/repositories/LembreteRepositoryImp.dart';
 import 'package:lembretes/layers/domain/entities/lembrete.dart';
-import 'package:lembretes/layers/domain/usecases/DeletarLembrete/deletar_lembrete_usecase_imp.dart';
-import 'package:lembretes/layers/presentation/controller/deletar_controller.dart';
 import 'package:lembretes/layers/presentation/pages/Detalhar.dart';
 import '../PaletaDeCores.dart';
 
@@ -19,9 +15,6 @@ class CardLembrete extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DeletarController deletarController = new DeletarController(
-        DeletarLembreteUseCaseImp(
-            LembreteRepositoryImp(LembretesDataSourceImp())));
     Size size = MediaQuery.of(context).size;
     return InkWell(
       onTap: (() {
@@ -80,43 +73,6 @@ class CardLembrete extends StatelessWidget {
                       onPressed: null,
                       icon: Icon(
                         Icons.favorite_outline,
-                        color: PaletaDeCores.roxo,
-                      )),
-                  IconButton(
-                      onPressed: () {
-                        showDialog(
-                            context: context,
-                            builder: (_) => AlertDialog(
-                                  title: Center(
-                                    child: Text(
-                                      "Excluir",
-                                      style: TextStyle(
-                                          color: PaletaDeCores.preto,
-                                          fontSize: 16),
-                                    ),
-                                  ),
-                                  content: Text(
-                                      "Deseja mesmo excluir este lembrete?"),
-                                  actions: [
-                                    TextButton(
-                                        onPressed: () {
-                                          Navigator.pop(context);
-                                        },
-                                        child: Text("Não")),
-                                    TextButton(
-                                        onPressed: () async {
-                                          await deletarController
-                                              .deletarLembreteUseCase
-                                              .call(lembrete.id);
-
-                                          Navigator.pop(context);
-                                        },
-                                        child: Text("Sim"))
-                                  ],
-                                ));
-                      },
-                      icon: Icon(
-                        Icons.delete,
                         color: PaletaDeCores.roxo,
                       )),
                 ],
