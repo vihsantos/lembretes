@@ -7,7 +7,7 @@ class LembretesDataSourceImp extends LembretesDataSource {
   @override
   Future<List<LembreteDto>> getLembretes() async {
     var response =
-        await http.get(Uri.parse('http://192.168.2.104:3000/lembretes/'));
+        await http.get(Uri.parse('http://192.168.2.102:3000/lembretes/'));
 
     if (response.statusCode == 200) {
       Iterable lista = json.decode(response.body);
@@ -22,7 +22,7 @@ class LembretesDataSourceImp extends LembretesDataSource {
 
   @override
   Future<void> postLembrete(LembreteDto lembrete) async {
-    var uri = Uri.parse('http://192.168.2.104:3000/lembretes/');
+    var uri = Uri.parse('http://192.168.2.102:3000/lembretes/');
 
     var response = await http.post(uri,
         headers: {"Content-Type": "application/json"},
@@ -34,7 +34,7 @@ class LembretesDataSourceImp extends LembretesDataSource {
   @override
   Future<List<LembreteDto>> buscarFavoritos() async {
     var response = await http
-        .get(Uri.parse('http://192.168.2.104:3000/lembretes/favoritos'));
+        .get(Uri.parse('http://192.168.2.102:3000/lembretes/favoritos'));
 
     if (response.statusCode == 200) {
       Iterable lista = json.decode(response.body);
@@ -49,7 +49,7 @@ class LembretesDataSourceImp extends LembretesDataSource {
 
   @override
   Future<void> deletarLembrete(int id) async {
-    var uri = Uri.parse('http://192.168.2.104:3000/lembretes/$id');
+    var uri = Uri.parse('http://192.168.2.102:3000/lembretes/$id');
 
     var response =
         await http.delete(uri, headers: {"Content-Type": "application/json"});
