@@ -91,11 +91,11 @@ class _HomeState extends State<Home> {
                       );
                     }
 
-                    if (_controller.quantLembretes == null) {
+                    if (_controller.quantLembretes == 0) {
                       return SemLembretes();
                     }
 
-                    if (_controller.quantLembretes < 1) {
+                    if (_controller.quantLembretes == 1) {
                       return Column(
                         children: [
                           CardLembrete(lembrete: _controller.lembretes[0]),
