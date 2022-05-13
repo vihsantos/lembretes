@@ -1,15 +1,23 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:lembretes/layers/presentation/utils/PaletaDeCores.dart';
 
-class BannerDivider extends StatelessWidget {
-  const BannerDivider({
+class BannerDivider extends StatefulWidget {
+  BannerDivider({
     Key key,
   }) : super(key: key);
 
   @override
+  State<BannerDivider> createState() => _BannerDividerState();
+}
+
+class _BannerDividerState extends State<BannerDivider> {
+  @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-
+    Random random = new Random();
+    int randomNumber = random.nextInt(5);
     return Container(
       decoration: BoxDecoration(
         boxShadow: [
@@ -29,7 +37,8 @@ class BannerDivider extends StatelessWidget {
       height: size.height * 0.10,
       child: Center(
         child: Text(
-          "    Lorem ipsum dolor sit amet, consectetur \n adipiscing elit ut aliquam.",
+          frases.elementAt(randomNumber),
+          textAlign: TextAlign.center,
           style: TextStyle(
               fontStyle: FontStyle.italic,
               fontWeight: FontWeight.w300,
@@ -38,4 +47,13 @@ class BannerDivider extends StatelessWidget {
       ),
     );
   }
+
+  List<String> frases = [
+    "Tenha coragem para se tornar aquilo que sonha.",
+    "Não tenho medo de aceitar que você não é mais o mesmo.",
+    "Aceite que seu corpo precisa de descanso para recuperar energias! Não se exija em excesso.",
+    "Não permita que suas metas tornem-se um peso nas suas costas. Você é quem as cria e quem tem o poder de mudá-las, não se esqueça.",
+    "O insucesso é apenas uma oportunidade para recomeçar com mais inteligência.",
+    "⁠A motivação é uma porta que se abre por dentro."
+  ];
 }
