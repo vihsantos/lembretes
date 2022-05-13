@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:lembretes/layers/domain/entities/lembrete.dart';
 import 'package:lembretes/layers/presentation/pages/Detalhar.dart';
+import 'package:lembretes/layers/presentation/pages/EditarPage.dart';
 import '../PaletaDeCores.dart';
 
 class CardLembrete extends StatelessWidget {
@@ -70,7 +71,13 @@ class CardLembrete extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   IconButton(
-                      onPressed: null,
+                      onPressed: (() {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    EditarPage(lembrete: lembrete)));
+                      }),
                       icon: Icon(
                         Icons.favorite_outline,
                         color: PaletaDeCores.roxo,
