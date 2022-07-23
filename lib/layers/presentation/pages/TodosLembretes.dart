@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:lembretes/layers/data/datasources/remote/lembretes_datasource_imp.dart';
+import 'package:lembretes/layers/data/dto/lembrete_dto.dart';
+import 'package:lembretes/layers/data/repositories/LembreteRepositoryImp.dart';
+import 'package:lembretes/layers/domain/usecases/GetLembretes/get_lembretes_usecase_imp.dart';
+import 'package:lembretes/layers/presentation/controller/lembretes_controller.dart';
 import 'package:lembretes/layers/presentation/utils/PaletaDeCores.dart';
+import 'package:lembretes/layers/presentation/utils/cards/SemLembretes.dart';
+import 'package:lembretes/layers/presentation/utils/cards/card_lembrete.dart';
 
 class TodosLembretes extends StatefulWidget {
   const TodosLembretes({Key key}) : super(key: key);
@@ -9,6 +16,8 @@ class TodosLembretes extends StatefulWidget {
 }
 
 class _TodosLembretesState extends State<TodosLembretes> {
+  LembretesController controller = LembretesController(
+      GetLembreteUseCaseImp(LembreteRepositoryImp(LembretesDataSourceImp())));
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,31 +34,35 @@ class _TodosLembretesState extends State<TodosLembretes> {
               fontWeight: FontWeight.w900),
         ),
       ),
-      // body: Padding(
-      //   padding: const EdgeInsets.only(left: 10, right: 10),
-      //   child: ValueListenableBuilder(
-      //     valueListenable: _controller.loadingApi,
-      //     builder: (_, loading, __) {
-      //       if (loading) {
-      //         return Center(child: CircularProgressIndicator());
-      //       }
+      body: Padding(
+        padding: const EdgeInsets.only(left: 10, right: 10),
+        child: ValueListenableBuilder(
+          valueListenable: controller.loadingApi,
+          builder: (_, loading, __) {
+            if (loading) {
+              return Center(child: CircularProgressIndicator());
+            }
 
-      //       if (_controller.lembretes.length == null) {
-      //         return SemLembretes();
-      //       }
+            if (controller.lembretes.length == null) {
+              return SemLembretes();
+            }
 
-      //       return ListView.builder(
-      //           scrollDirection: Axis.vertical,
-      //           shrinkWrap: true,
-      //           itemCount: _controller.lembretes.length,
-      //           itemBuilder: (context, index) {
-      //             LembreteDto lembrete = _controller.lembretes[index];
+            print(controller.lembretes);
 
-      //             return CardLembrete(lembrete: lembrete);
-      //           });
-      //     },
-      //   ),
-      // ),
+            // return Container();
+
+            return ListView.builder(
+                scrollDirection: Axis.vertical,
+                shrinkWrap: true,
+                itemCount: controller.lembretes.length,
+                itemBuilder: (context, index) {
+                  LembreteDto lembrete = controller.lembretes[index];
+
+                  return CardLembrete(lembrete: lembrete);
+                });
+          },
+        ),
+      ),
     );
   }
 }
