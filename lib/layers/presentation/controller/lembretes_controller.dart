@@ -9,15 +9,13 @@ class LembretesController {
     initialize();
   }
 
-  List<Lembrete> lembretes;
-
   initialize() {
     this.buscarLembretes();
   }
 
+  List<Lembrete> lembretes;
   final loadingApi = ValueNotifier<bool>(false);
   set loading(bool bool) => loadingApi.value = bool;
-  int get lembretesCount => lembretes.length;
 
   bool get loading => loadingApi.value;
 
