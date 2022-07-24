@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:lembretes/layers/inject/Inject.dart';
 import 'package:lembretes/layers/presentation/pages/MainPage.dart';
 
 void main() {
+  Inject.initialize();
   runApp(MyApp());
 }
 
