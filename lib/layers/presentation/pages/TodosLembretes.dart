@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:lembretes/layers/data/datasources/remote/lembretes_datasource_imp.dart';
 import 'package:lembretes/layers/data/dto/lembrete_dto.dart';
 import 'package:lembretes/layers/data/repositories/LembreteRepositoryImp.dart';
@@ -16,8 +17,7 @@ class TodosLembretes extends StatefulWidget {
 }
 
 class _TodosLembretesState extends State<TodosLembretes> {
-  LembretesController controller = LembretesController(
-      GetLembreteUseCaseImp(LembreteRepositoryImp(LembretesDataSourceImp())));
+  LembretesController controller = GetIt.I.get<LembretesController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
