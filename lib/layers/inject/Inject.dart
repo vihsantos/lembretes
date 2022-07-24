@@ -33,9 +33,6 @@ class Inject {
     getIt.registerLazySingleton<PostLembreteUseCase>(
         () => PostLembreteUseCaseImp(getIt()));
 
-    getIt.registerLazySingleton<PostLembreteUseCase>(
-        () => PostLembreteUseCaseImp(getIt()));
-
     getIt.registerLazySingleton<DeletarLembreteUseCase>(
         () => DeletarLembreteUseCaseImp(getIt()));
 
