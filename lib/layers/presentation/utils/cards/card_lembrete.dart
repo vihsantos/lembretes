@@ -1,11 +1,7 @@
-import 'dart:developer';
-
 import 'package:intl/intl.dart';
-
 import 'package:flutter/material.dart';
 import 'package:lembretes/layers/domain/entities/lembrete.dart';
 import 'package:lembretes/layers/presentation/pages/Detalhar.dart';
-import 'package:lembretes/layers/presentation/pages/EditarPage.dart';
 import '../PaletaDeCores.dart';
 
 class CardLembrete extends StatelessWidget {
@@ -19,7 +15,6 @@ class CardLembrete extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    log(lembrete.favorito.toString());
     return InkWell(
       onTap: (() {
         Navigator.push(
