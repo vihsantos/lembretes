@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:intl/intl.dart';
 
 import 'package:flutter/material.dart';
@@ -17,6 +19,7 @@ class CardLembrete extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    log(lembrete.favorito.toString());
     return InkWell(
       onTap: (() {
         Navigator.push(
@@ -71,15 +74,11 @@ class CardLembrete extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   IconButton(
-                      onPressed: (() {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    EditarPage(lembrete: lembrete)));
-                      }),
+                      onPressed: (() {}),
                       icon: Icon(
-                        Icons.favorite_outline,
+                        lembrete.favorito
+                            ? Icons.favorite
+                            : Icons.favorite_outline,
                         color: PaletaDeCores.roxo,
                       )),
                 ],
@@ -93,7 +92,7 @@ class CardLembrete extends StatelessWidget {
                     borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(20),
                         bottomRight: Radius.circular(20))),
-                height: size.height * 0.048,
+                height: size.height * 0.044,
                 width: size.width * 0.98,
                 child: Padding(
                   padding: const EdgeInsets.only(left: 10, top: 6, bottom: 6),
