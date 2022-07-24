@@ -77,37 +77,35 @@ class _HomeState extends State<Home> {
                             borderRadius: BorderRadius.circular(20)),
                         height: size.height * 0.15,
                         width: size.width * 0.48,
-                        child: Center(
-                          child: ValueListenableBuilder(
-                            valueListenable: controller.loadingApi,
-                            builder: (_, loading, __) {
-                              if (loading) {
-                                return CircularProgressIndicator();
-                              }
+                        child: ValueListenableBuilder(
+                          valueListenable: controller.loadingApi,
+                          builder: (_, loading, __) {
+                            if (loading) {
+                              return Center(child: CircularProgressIndicator());
+                            }
 
-                              return Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    "${controller.lembretes.length}",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 28,
-                                        color: PaletaDeCores.preto),
-                                  ),
-                                  Text(
-                                    (controller.lembretes.length <= 1)
-                                        ? "lembrete"
-                                        : "lembretes",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.w300,
-                                        color: PaletaDeCores.preto,
-                                        fontSize: 18),
-                                  )
-                                ],
-                              );
-                            },
-                          ),
+                            return Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "${controller.lembretes.length}",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 28,
+                                      color: PaletaDeCores.preto),
+                                ),
+                                Text(
+                                  (controller.lembretes.length <= 1)
+                                      ? "lembrete"
+                                      : "lembretes",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w300,
+                                      color: PaletaDeCores.preto,
+                                      fontSize: 18),
+                                )
+                              ],
+                            );
+                          },
                         )),
                     SizedBox(width: size.width * 0.06),
                     Container(
@@ -152,7 +150,7 @@ class _HomeState extends State<Home> {
                       fontSize: 20,
                       fontWeight: FontWeight.w400),
                 ),
-                SizedBox(height: size.height * 0.02),
+                SizedBox(height: size.height * 0.025),
                 ValueListenableBuilder(
                   valueListenable: controller.loadingApi,
                   builder: (_, loading, __) {
