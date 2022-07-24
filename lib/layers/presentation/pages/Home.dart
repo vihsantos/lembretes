@@ -9,7 +9,6 @@ import 'package:lembretes/layers/presentation/utils/cards/card_lembrete.dart';
 import '../utils/cards/BannerDivider.dart';
 import '../utils/cards/SemLembretes.dart';
 import 'ConfigPage.dart';
-import 'FavoritePage.dart';
 
 class Home extends StatefulWidget {
   const Home({Key key}) : super(key: key);
