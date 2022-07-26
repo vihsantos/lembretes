@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:lembretes/layers/data/datasources/remote/lembretes_datasource_imp.dart';
 import 'package:lembretes/layers/data/dto/lembrete_dto.dart';
-import 'package:lembretes/layers/data/repositories/LembreteRepositoryImp.dart';
-import 'package:lembretes/layers/domain/usecases/GetLembretes/get_lembretes_usecase_imp.dart';
 import 'package:lembretes/layers/presentation/controller/lembretes_controller.dart';
 import 'package:lembretes/layers/presentation/utils/PaletaDeCores.dart';
 import 'package:lembretes/layers/presentation/utils/cards/SemLembretes.dart';
