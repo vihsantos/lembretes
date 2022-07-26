@@ -30,7 +30,7 @@ class CardLembrete extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
           ),
           width: size.width * 0.98,
-          height: size.height * 0.22,
+          height: size.height * 0.20,
           child: Stack(children: [
             Align(
                 alignment: Alignment.topLeft,
@@ -49,7 +49,7 @@ class CardLembrete extends StatelessWidget {
                       SizedBox(height: size.height * 0.01),
                       Container(
                         width: size.width * 0.79,
-                        height: size.height * 0.096,
+                        height: size.height * 0.09,
                         child: Text(
                           lembrete.descricao,
                           maxLines: 3,
