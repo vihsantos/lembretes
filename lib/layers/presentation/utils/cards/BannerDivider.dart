@@ -50,7 +50,6 @@ class _BannerDividerState extends State<BannerDivider> {
 
   List<String> frases = [
     "Tenha coragem para se tornar aquilo que sonha.",
-    "Não tenho medo de aceitar que você não é mais o mesmo.",
     "Aceite que seu corpo precisa de descanso para recuperar energias! Não se exija em excesso.",
     "Não permita que suas metas tornem-se um peso nas suas costas. Você é quem as cria e quem tem o poder de mudá-las, não se esqueça.",
     "O insucesso é apenas uma oportunidade para recomeçar com mais inteligência.",
