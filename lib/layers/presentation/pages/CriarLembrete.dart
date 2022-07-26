@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lembretes/layers/data/datasources/remote/lembretes_datasource_imp.dart';
+import 'package:get_it/get_it.dart';
 import 'package:lembretes/layers/data/dto/lembrete_dto.dart';
-import 'package:lembretes/layers/data/repositories/LembreteRepositoryImp.dart';
-import 'package:lembretes/layers/domain/usecases/PostLembrete/post_lembretes_usecase_imp.dart';
 import 'package:lembretes/layers/presentation/controller/criar_lembrete_controller.dart';
 import 'package:lembretes/layers/presentation/pages/MainPage.dart';
 import 'package:lembretes/layers/presentation/utils/PaletaDeCores.dart';
@@ -15,8 +13,7 @@ class CriarLembrete extends StatefulWidget {
 }
 
 class _CriarLembreteState extends State<CriarLembrete> {
-  CriarLembreteController _controller = new CriarLembreteController(
-      PostLembreteUseCaseImp(LembreteRepositoryImp(LembretesDataSourceImp())));
+  CriarLembreteController _controller = GetIt.I.get<CriarLembreteController>();
   TextEditingController tituloController = TextEditingController();
   TextEditingController descricaoController = TextEditingController();
 

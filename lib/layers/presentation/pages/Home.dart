@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lembretes/layers/data/datasources/remote/lembretes_datasource_imp.dart';
+import 'package:get_it/get_it.dart';
 import 'package:lembretes/layers/data/dto/lembrete_dto.dart';
-import 'package:lembretes/layers/data/repositories/LembreteRepositoryImp.dart';
-import 'package:lembretes/layers/domain/usecases/GetLembretes/get_lembretes_usecase_imp.dart';
 import 'package:lembretes/layers/presentation/controller/lembretes_controller.dart';
 import 'package:lembretes/layers/presentation/utils/PaletaDeCores.dart';
 import 'package:lembretes/layers/presentation/utils/cards/card_lembrete.dart';
@@ -21,8 +19,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    LembretesController controller = LembretesController(
-        GetLembreteUseCaseImp(LembreteRepositoryImp(LembretesDataSourceImp())));
+    LembretesController controller = GetIt.I.get<LembretesController>();
 
     return Scaffold(
         backgroundColor: PaletaDeCores.background,
