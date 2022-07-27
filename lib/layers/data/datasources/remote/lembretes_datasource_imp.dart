@@ -56,4 +56,14 @@ class LembretesDataSourceImp extends LembretesDataSource {
 
     if (response.statusCode == 200) print("Ok!!");
   }
+
+  @override
+  Future<void> favoritar(int id) async {
+    var uri = Uri.parse("http://192.168.2.106:3000/lembretes/favoritar/$id");
+
+    var response =
+        await http.put(uri, headers: {"Content-Type": "application/json"});
+
+    if (response.statusCode == 200) print("Ok!!");
+  }
 }
