@@ -5,4 +5,5 @@ abstract class LembretesDataSource {
   Future<void> postLembrete(LembreteDto lembrete);
   Future<void> deletarLembrete(int id);
   Future<List<LembreteDto>> buscarFavoritos();
+  Future<void> favoritar(int id);
 }
