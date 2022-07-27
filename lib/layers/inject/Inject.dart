@@ -12,6 +12,7 @@ import 'package:lembretes/layers/domain/usecases/GetLembretes/get_lembretes_usec
 import 'package:lembretes/layers/domain/usecases/PostLembrete/post_lembrete_usecase.dart';
 import 'package:lembretes/layers/domain/usecases/PostLembrete/post_lembretes_usecase_imp.dart';
 import 'package:lembretes/layers/presentation/controller/criar_lembrete_controller.dart';
+import 'package:lembretes/layers/presentation/controller/home_controller.dart';
 import 'package:lembretes/layers/presentation/controller/lembretes_controller.dart';
 
 class Inject {
@@ -41,5 +42,7 @@ class Inject {
 
     getIt.registerFactory<CriarLembreteController>(
         () => CriarLembreteController(getIt()));
+
+    getIt.registerFactory<HomeController>(() => HomeController(getIt()));
   }
 }
