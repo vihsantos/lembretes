@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:lembretes/layers/data/dto/lembrete_dto.dart';
+import 'package:lembretes/layers/presentation/controller/home_controller.dart';
 import 'package:lembretes/layers/presentation/controller/lembretes_controller.dart';
 import 'package:lembretes/layers/presentation/utils/PaletaDeCores.dart';
 import 'package:lembretes/layers/presentation/utils/cards/card_lembrete.dart';
@@ -19,7 +20,7 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    LembretesController controller = GetIt.I.get<LembretesController>();
+    HomeController controller = GetIt.I.get<HomeController>();
 
     return Scaffold(
         backgroundColor: PaletaDeCores.background,
@@ -117,24 +118,35 @@ class _HomeState extends State<Home> {
                             borderRadius: BorderRadius.circular(20)),
                         height: size.height * 0.15,
                         width: size.width * 0.40,
-                        child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "0",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 28,
-                                    color: PaletaDeCores.preto),
-                              ),
-                              Text(
-                                "favoritos",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w300,
-                                    color: PaletaDeCores.preto,
-                                    fontSize: 18),
-                              )
-                            ])),
+                        child: ValueListenableBuilder(
+                          valueListenable: controller.loadingApi,
+                          builder: (_, loading, __) {
+                            if (loading) {
+                              return Center(child: CircularProgressIndicator());
+                            }
+
+                            return Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "${controller.quantFavoritos}",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 28,
+                                        color: PaletaDeCores.preto),
+                                  ),
+                                  Text(
+                                    (controller.quantFavoritos <= 1)
+                                        ? "favorito"
+                                        : "favoritos",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w300,
+                                        color: PaletaDeCores.preto,
+                                        fontSize: 18),
+                                  )
+                                ]);
+                          },
+                        )),
                   ],
                 ),
                 SizedBox(height: size.height * 0.025),
