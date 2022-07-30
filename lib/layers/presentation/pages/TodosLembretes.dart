@@ -55,7 +55,11 @@ class _TodosLembretesState extends State<TodosLembretes> {
                 itemBuilder: (context, index) {
                   LembreteDto lembrete = controller.lembretes[index];
 
-                  return CardLembrete(lembrete: lembrete);
+                  return CardLembrete(
+                      lembrete: lembrete,
+                      favoritar: () {
+                        controller.favoritar(lembrete.id);
+                      });
                 });
           },
         ),

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:lembretes/layers/data/dto/lembrete_dto.dart';
 import 'package:lembretes/layers/presentation/controller/home_controller.dart';
-import 'package:lembretes/layers/presentation/controller/lembretes_controller.dart';
 import 'package:lembretes/layers/presentation/utils/PaletaDeCores.dart';
 import 'package:lembretes/layers/presentation/utils/cards/card_lembrete.dart';
 import '../utils/cards/BannerDivider.dart';
@@ -129,14 +128,14 @@ class _HomeState extends State<Home> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Text(
-                                    "${controller.quantFavoritos}",
+                                    "${controller.quantLembretesFavoritos()}",
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         fontSize: 28,
                                         color: PaletaDeCores.preto),
                                   ),
                                   Text(
-                                    (controller.quantFavoritos <= 1)
+                                    (controller.quantLembretesFavoritos() <= 1)
                                         ? "favorito"
                                         : "favoritos",
                                     style: TextStyle(
@@ -181,7 +180,11 @@ class _HomeState extends State<Home> {
                         itemBuilder: (context, index) {
                           LembreteDto lembrete = controller.lembretes[index];
 
-                          return CardLembrete(lembrete: lembrete);
+                          return CardLembrete(
+                              favoritar: () {
+                                controller.favoritar(lembrete.id);
+                              },
+                              lembrete: lembrete);
                         });
                   },
                 )
