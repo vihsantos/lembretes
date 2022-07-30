@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lembretes/layers/domain/entities/lembrete.dart';
 import 'package:intl/intl.dart';
+import 'package:lembretes/layers/presentation/pages/EditarPage.dart';
 import '../utils/PaletaDeCores.dart';
 
 class Detalhar extends StatefulWidget {
@@ -52,7 +53,13 @@ class _DetalharState extends State<Detalhar> {
                     fontStyle: FontStyle.italic),
               ),
               TextButton(
-                  onPressed: null,
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                EditarPage(lembrete: widget.lembrete)));
+                  },
                   child: Text(
                     "Editar",
                     style: TextStyle(
