@@ -8,9 +8,11 @@ class CardLembrete extends StatelessWidget {
   const CardLembrete({
     Key key,
     @required this.lembrete,
+    @required this.favoritar,
   }) : super(key: key);
 
   final Lembrete lembrete;
+  final Function favoritar;
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +71,7 @@ class CardLembrete extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   IconButton(
-                      onPressed: (() {}),
+                      onPressed: favoritar,
                       icon: Icon(
                         lembrete.favorito
                             ? Icons.favorite
