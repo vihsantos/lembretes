@@ -22,4 +22,7 @@ class LembreteRepositoryImp implements LembreteRepository {
   @override
   Future<void> deletarLembrete(int id) async =>
       lembretesDataSource.deletarLembrete(id);
+
+  @override
+  Future<void> favoritar(int id) async => lembretesDataSource.favoritar(id);
 }
