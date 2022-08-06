@@ -14,6 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Lembretes",
+      theme: ThemeData(fontFamily: 'Gowun Batang'),
       home: MainPage(),
     );
   }
