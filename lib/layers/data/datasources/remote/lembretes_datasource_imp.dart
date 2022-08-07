@@ -66,4 +66,15 @@ class LembretesDataSourceImp extends LembretesDataSource {
 
     if (response.statusCode == 200) print("Ok!!");
   }
+
+  @override
+  Future<void> editarLembrete(int? id, LembreteDto lembrete) async {
+    var uri = Uri.parse("http://192.168.2.106:3000/lembretes/editar/$id");
+
+    var response = await http.put(uri,
+        body: json.encode(lembrete.toMap()),
+        headers: {"Content-Type": "application/json"});
+
+    if (response.statusCode == 200) print("Editado!!");
+  }
 }
