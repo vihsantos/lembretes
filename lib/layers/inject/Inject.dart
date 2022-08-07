@@ -5,6 +5,8 @@ import 'package:lembretes/layers/data/repositories/LembreteRepositoryImp.dart';
 import 'package:lembretes/layers/domain/repositories/LembreteRepository.dart';
 import 'package:lembretes/layers/domain/usecases/DeletarLembrete/deletar_lembrete_usecase.dart';
 import 'package:lembretes/layers/domain/usecases/DeletarLembrete/deletar_lembrete_usecase_imp.dart';
+import 'package:lembretes/layers/domain/usecases/EditarLembrete/editar_lembrete_usecase.dart';
+import 'package:lembretes/layers/domain/usecases/EditarLembrete/editar_lembrete_usecase_imp.dart';
 import 'package:lembretes/layers/domain/usecases/FavoritarLembrete/favoritar_usecase.dart';
 import 'package:lembretes/layers/domain/usecases/FavoritarLembrete/favoritar_usecase_imp.dart';
 import 'package:lembretes/layers/domain/usecases/GetFavoritos/get_favoritos_usecase.dart';
@@ -14,6 +16,7 @@ import 'package:lembretes/layers/domain/usecases/GetLembretes/get_lembretes_usec
 import 'package:lembretes/layers/domain/usecases/PostLembrete/post_lembrete_usecase.dart';
 import 'package:lembretes/layers/domain/usecases/PostLembrete/post_lembretes_usecase_imp.dart';
 import 'package:lembretes/layers/presentation/controller/criar_lembrete_controller.dart';
+import 'package:lembretes/layers/presentation/controller/editar_lembrete_controller.dart';
 import 'package:lembretes/layers/presentation/controller/home_controller.dart';
 import 'package:lembretes/layers/presentation/controller/lembretes_controller.dart';
 
@@ -42,11 +45,17 @@ class Inject {
     getIt.registerLazySingleton<FavoritarUseCase>(
         () => FavoritarUseCaseImp(getIt()));
 
+    getIt.registerLazySingleton<EditarLembreteUseCase>(
+        () => EditarLembreteUseCaseImp(getIt()));
+
     getIt.registerFactory<LembretesController>(
         () => LembretesController(getIt(), getIt()));
 
     getIt.registerFactory<CriarLembreteController>(
         () => CriarLembreteController(getIt()));
+
+    getIt.registerFactory<EditarLembreteController>(
+        () => EditarLembreteController(getIt()));
 
     getIt.registerFactory<HomeController>(
         () => HomeController(getIt(), getIt()));
