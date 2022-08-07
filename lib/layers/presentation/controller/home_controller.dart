@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:lembretes/layers/domain/entities/lembrete.dart';
+import 'package:lembretes/layers/domain/usecases/DeletarLembrete/deletar_lembrete_usecase.dart';
 import 'package:lembretes/layers/domain/usecases/FavoritarLembrete/favoritar_usecase.dart';
 import 'package:lembretes/layers/domain/usecases/GetLembretes/get_lembretes_usecase.dart';
 
 class HomeController {
   final GetLembretesUseCase? getLembretesUseCase;
   final FavoritarUseCase? favoritarUseCase;
+  final DeletarLembreteUseCase? deletarLembreteUseCase;
 
-  HomeController(this.getLembretesUseCase, this.favoritarUseCase) {
+  HomeController(this.getLembretesUseCase, this.favoritarUseCase,
+      this.deletarLembreteUseCase) {
     initialize();
   }
 
@@ -29,6 +32,11 @@ class HomeController {
 
   favoritar(int? id) async {
     await favoritarUseCase!.call(id);
+    buscarLembretes();
+  }
+
+  deletar(int? id) async {
+    await deletarLembreteUseCase!.call(id!);
     buscarLembretes();
   }
 

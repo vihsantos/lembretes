@@ -9,10 +9,12 @@ class CardLembrete extends StatelessWidget {
     Key? key,
     required this.lembrete,
     required this.favoritar,
+    required this.deletar,
   }) : super(key: key);
 
   final Lembrete lembrete;
   final Function favoritar;
+  final Function deletar;
 
   @override
   Widget build(BuildContext context) {
@@ -76,6 +78,12 @@ class CardLembrete extends StatelessWidget {
                         lembrete.favorito!
                             ? Icons.favorite
                             : Icons.favorite_outline,
+                        color: PaletaDeCores.roxo,
+                      )),
+                  IconButton(
+                      onPressed: deletar as void Function()?,
+                      icon: Icon(
+                        Icons.delete,
                         color: PaletaDeCores.roxo,
                       )),
                 ],

@@ -49,7 +49,7 @@ class Inject {
         () => EditarLembreteUseCaseImp(getIt()));
 
     getIt.registerFactory<LembretesController>(
-        () => LembretesController(getIt(), getIt()));
+        () => LembretesController(getIt(), getIt(), getIt()));
 
     getIt.registerFactory<CriarLembreteController>(
         () => CriarLembreteController(getIt()));
@@ -58,6 +58,6 @@ class Inject {
         () => EditarLembreteController(getIt()));
 
     getIt.registerFactory<HomeController>(
-        () => HomeController(getIt(), getIt()));
+        () => HomeController(getIt(), getIt(), getIt()));
   }
 }

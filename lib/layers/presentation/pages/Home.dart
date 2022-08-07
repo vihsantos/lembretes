@@ -178,13 +178,18 @@ class _HomeState extends State<Home> {
                         shrinkWrap: true,
                         itemCount: (controller.lembretes!.length <= 1) ? 1 : 2,
                         itemBuilder: (context, index) {
-                          LembreteDto lembrete = controller.lembretes![index] as LembreteDto;
+                          LembreteDto lembrete =
+                              controller.lembretes![index] as LembreteDto;
 
                           return CardLembrete(
-                              favoritar: () {
-                                controller.favoritar(lembrete.id);
-                              },
-                              lembrete: lembrete);
+                            favoritar: () {
+                              controller.favoritar(lembrete.id);
+                            },
+                            lembrete: lembrete,
+                            deletar: () {
+                              controller.deletar(lembrete.id);
+                            },
+                          );
                         });
                   },
                 )

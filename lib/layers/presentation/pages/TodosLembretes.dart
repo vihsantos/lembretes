@@ -47,8 +47,6 @@ class _TodosLembretesState extends State<TodosLembretes> {
 
             print(controller.lembretes);
 
-            // return Container();
-
             return ListView.builder(
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,
@@ -58,10 +56,14 @@ class _TodosLembretesState extends State<TodosLembretes> {
                       controller.lembretes![index] as LembreteDto;
 
                   return CardLembrete(
-                      lembrete: lembrete,
-                      favoritar: () {
-                        controller.favoritar(lembrete.id);
-                      });
+                    lembrete: lembrete,
+                    favoritar: () {
+                      controller.favoritar(lembrete.id);
+                    },
+                    deletar: () {
+                      controller.deletar(lembrete.id);
+                    },
+                  );
                 });
           },
         ),
