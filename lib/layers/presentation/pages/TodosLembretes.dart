@@ -40,6 +40,7 @@ class _TodosLembretesState extends State<TodosLembretes> {
               return Center(child: CircularProgressIndicator());
             }
 
+            // ignore: unnecessary_null_comparison
             if (controller.lembretes!.length == null) {
               return SemLembretes();
             }
@@ -53,7 +54,8 @@ class _TodosLembretesState extends State<TodosLembretes> {
                 shrinkWrap: true,
                 itemCount: controller.lembretes!.length,
                 itemBuilder: (context, index) {
-                  LembreteDto lembrete = controller.lembretes![index] as LembreteDto;
+                  LembreteDto lembrete =
+                      controller.lembretes![index] as LembreteDto;
 
                   return CardLembrete(
                       lembrete: lembrete,

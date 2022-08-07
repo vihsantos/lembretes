@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:lembretes/layers/domain/entities/lembrete.dart';
 
 class LembreteDto extends Lembrete {
