@@ -6,7 +6,6 @@ import 'package:lembretes/layers/presentation/utils/PaletaDeCores.dart';
 import 'package:lembretes/layers/presentation/utils/cards/card_lembrete.dart';
 import '../utils/cards/BannerDivider.dart';
 import '../utils/cards/SemLembretes.dart';
-import 'ConfigPage.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -33,25 +32,6 @@ class _HomeState extends State<Home> {
                 color: PaletaDeCores.roxo,
                 fontWeight: FontWeight.w900),
           ),
-          actions: [
-            // IconButton(
-            //     onPressed: () {
-            //       Navigator.push(context,
-            //           MaterialPageRoute(builder: (context) => FavoritePage()));
-            //     },
-            //     icon: Icon(
-            //       Icons.favorite,
-            //       color: PaletaDeCores.roxo,
-            //       size: 28,
-            //     )),
-            IconButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => ConfigPage()));
-                },
-                icon:
-                    Icon(Icons.settings, color: PaletaDeCores.roxo, size: 28)),
-          ],
         ),
         body: Padding(
           padding: const EdgeInsets.only(left: 10, right: 10),
