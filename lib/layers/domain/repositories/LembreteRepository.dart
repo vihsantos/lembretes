@@ -6,4 +6,5 @@ abstract class LembreteRepository {
   Future<void> deletarLembrete(int id);
   Future<List<Lembrete>?> buscarFavoritos();
   Future<void> favoritar(int? id);
+  Future<void> editarLembrete(int? id, Lembrete lembrete);
 }

@@ -26,4 +26,8 @@ class LembreteRepositoryImp implements LembreteRepository {
 
   @override
   Future<void> favoritar(int? id) async => lembretesDataSource!.favoritar(id);
+
+  @override
+  Future editarLembrete(int? id, Lembrete lembrete) async =>
+      lembretesDataSource!.editarLembrete(id, lembrete as LembreteDto);
 }
