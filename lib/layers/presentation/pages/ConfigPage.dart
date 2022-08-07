@@ -14,6 +14,26 @@ class _ConfigPageState extends State<ConfigPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: PaletaDeCores.background,
+      appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(Icons.arrow_back_rounded,
+                  color: PaletaDeCores.roxo, size: 28))
+        ],
+        automaticallyImplyLeading: false,
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        title: Text(
+          "Configurações".toUpperCase(),
+          style: TextStyle(
+              fontSize: 22,
+              color: PaletaDeCores.roxo,
+              fontWeight: FontWeight.w900),
+        ),
+      ),
     );
   }
 }
