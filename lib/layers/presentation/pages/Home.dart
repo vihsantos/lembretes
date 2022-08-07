@@ -9,7 +9,7 @@ import '../utils/cards/SemLembretes.dart';
 import 'ConfigPage.dart';
 
 class Home extends StatefulWidget {
-  const Home({Key key}) : super(key: key);
+  const Home({Key? key}) : super(key: key);
 
   @override
   State<Home> createState() => _HomeState();
@@ -76,7 +76,7 @@ class _HomeState extends State<Home> {
                         width: size.width * 0.48,
                         child: ValueListenableBuilder(
                           valueListenable: controller.loadingApi,
-                          builder: (_, loading, __) {
+                          builder: (_, dynamic loading, __) {
                             if (loading) {
                               return Center(child: CircularProgressIndicator());
                             }
@@ -85,14 +85,14 @@ class _HomeState extends State<Home> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  "${controller.lembretes.length}",
+                                  "${controller.lembretes!.length}",
                                   style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 28,
                                       color: PaletaDeCores.preto),
                                 ),
                                 Text(
-                                  (controller.lembretes.length <= 1)
+                                  (controller.lembretes!.length <= 1)
                                       ? "lembrete"
                                       : "lembretes",
                                   style: TextStyle(
@@ -119,7 +119,7 @@ class _HomeState extends State<Home> {
                         width: size.width * 0.40,
                         child: ValueListenableBuilder(
                           valueListenable: controller.loadingApi,
-                          builder: (_, loading, __) {
+                          builder: (_, dynamic loading, __) {
                             if (loading) {
                               return Center(child: CircularProgressIndicator());
                             }
@@ -161,7 +161,7 @@ class _HomeState extends State<Home> {
                 SizedBox(height: size.height * 0.025),
                 ValueListenableBuilder(
                   valueListenable: controller.loadingApi,
-                  builder: (_, loading, __) {
+                  builder: (_, dynamic loading, __) {
                     if (loading) {
                       return Padding(
                         padding: const EdgeInsets.only(top: 60),
@@ -169,16 +169,16 @@ class _HomeState extends State<Home> {
                       );
                     }
 
-                    if (controller.lembretes.length == 0) {
+                    if (controller.lembretes!.length == 0) {
                       return SemLembretes();
                     }
 
                     return ListView.builder(
                         scrollDirection: Axis.vertical,
                         shrinkWrap: true,
-                        itemCount: (controller.lembretes.length <= 1) ? 1 : 2,
+                        itemCount: (controller.lembretes!.length <= 1) ? 1 : 2,
                         itemBuilder: (context, index) {
-                          LembreteDto lembrete = controller.lembretes[index];
+                          LembreteDto lembrete = controller.lembretes![index] as LembreteDto;
 
                           return CardLembrete(
                               favoritar: () {

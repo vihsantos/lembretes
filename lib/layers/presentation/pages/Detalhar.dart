@@ -5,7 +5,7 @@ import 'package:lembretes/layers/presentation/pages/EditarPage.dart';
 import '../utils/PaletaDeCores.dart';
 
 class Detalhar extends StatefulWidget {
-  const Detalhar({Key key, @required this.lembrete}) : super(key: key);
+  const Detalhar({Key? key, required this.lembrete}) : super(key: key);
 
   final Lembrete lembrete;
   @override
@@ -31,7 +31,7 @@ class _DetalharState extends State<Detalhar> {
                   color: PaletaDeCores.roxo, size: 28))
         ],
         title: Text(
-          widget.lembrete.titulo.toUpperCase(),
+          widget.lembrete.titulo!.toUpperCase(),
           style: TextStyle(
               fontSize: 22,
               color: PaletaDeCores.roxo,
@@ -45,7 +45,7 @@ class _DetalharState extends State<Detalhar> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                DateFormat('dd/MM/yyyy').format(widget.lembrete.datal),
+                DateFormat('dd/MM/yyyy').format(widget.lembrete.datal!),
                 style: TextStyle(
                     color: PaletaDeCores.preto,
                     fontWeight: FontWeight.bold,
@@ -72,7 +72,7 @@ class _DetalharState extends State<Detalhar> {
           Container(
             width: size.width * 0.98,
             child: Text(
-              widget.lembrete.descricao,
+              widget.lembrete.descricao!,
               textAlign: TextAlign.justify,
             ),
           )

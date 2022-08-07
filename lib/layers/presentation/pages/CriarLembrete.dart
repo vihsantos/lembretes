@@ -6,7 +6,7 @@ import 'package:lembretes/layers/presentation/pages/MainPage.dart';
 import 'package:lembretes/layers/presentation/utils/PaletaDeCores.dart';
 
 class CriarLembrete extends StatefulWidget {
-  const CriarLembrete({Key key}) : super(key: key);
+  const CriarLembrete({Key? key}) : super(key: key);
 
   @override
   State<CriarLembrete> createState() => _CriarLembreteState();
@@ -89,7 +89,7 @@ class _CriarLembreteState extends State<CriarLembrete> {
                         ),
                       ),
                       onPressed: () async {
-                        DateTime data = DateTime.now();
+                        DateTime? data = DateTime.now();
 
                         LembreteDto novo = new LembreteDto(
                           titulo: tituloController.text,
@@ -98,7 +98,7 @@ class _CriarLembreteState extends State<CriarLembrete> {
                           favorito: false,
                         );
 
-                        await _controller.postLembreteUseCase(novo);
+                        await _controller.postLembreteUseCase!(novo);
 
                         tituloController.clear();
                         descricaoController.clear();

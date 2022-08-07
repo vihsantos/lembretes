@@ -7,7 +7,7 @@ import 'package:lembretes/layers/presentation/utils/cards/SemLembretes.dart';
 import 'package:lembretes/layers/presentation/utils/cards/card_lembrete.dart';
 
 class TodosLembretes extends StatefulWidget {
-  const TodosLembretes({Key key}) : super(key: key);
+  const TodosLembretes({Key? key}) : super(key: key);
 
   @override
   State<TodosLembretes> createState() => _TodosLembretesState();
@@ -35,12 +35,12 @@ class _TodosLembretesState extends State<TodosLembretes> {
         padding: const EdgeInsets.only(left: 10, right: 10),
         child: ValueListenableBuilder(
           valueListenable: controller.loadingApi,
-          builder: (_, loading, __) {
+          builder: (_, dynamic loading, __) {
             if (loading) {
               return Center(child: CircularProgressIndicator());
             }
 
-            if (controller.lembretes.length == null) {
+            if (controller.lembretes!.length == null) {
               return SemLembretes();
             }
 
@@ -51,9 +51,9 @@ class _TodosLembretesState extends State<TodosLembretes> {
             return ListView.builder(
                 scrollDirection: Axis.vertical,
                 shrinkWrap: true,
-                itemCount: controller.lembretes.length,
+                itemCount: controller.lembretes!.length,
                 itemBuilder: (context, index) {
-                  LembreteDto lembrete = controller.lembretes[index];
+                  LembreteDto lembrete = controller.lembretes![index] as LembreteDto;
 
                   return CardLembrete(
                       lembrete: lembrete,

@@ -4,7 +4,7 @@ import '../PaletaDeCores.dart';
 
 class SemLembretes extends StatelessWidget {
   const SemLembretes({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

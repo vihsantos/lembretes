@@ -5,7 +5,7 @@ import '../lembretes_datasource.dart';
 
 class LembretesDataSourceImp extends LembretesDataSource {
   @override
-  Future<List<LembreteDto>> getLembretes() async {
+  Future<List<LembreteDto>?> getLembretes() async {
     var response =
         await http.get(Uri.parse('http://192.168.2.106:3000/lembretes/'));
 
@@ -32,7 +32,7 @@ class LembretesDataSourceImp extends LembretesDataSource {
   }
 
   @override
-  Future<List<LembreteDto>> buscarFavoritos() async {
+  Future<List<LembreteDto>?> buscarFavoritos() async {
     var response = await http
         .get(Uri.parse('http://192.168.2.106:3000/lembretes/favoritos'));
 
@@ -58,7 +58,7 @@ class LembretesDataSourceImp extends LembretesDataSource {
   }
 
   @override
-  Future<void> favoritar(int id) async {
+  Future<void> favoritar(int? id) async {
     var uri = Uri.parse("http://192.168.2.106:3000/lembretes/favoritar/$id");
 
     var response =

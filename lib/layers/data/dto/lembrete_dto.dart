@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:lembretes/layers/domain/entities/lembrete.dart';
 
 class LembreteDto extends Lembrete {
-  int id;
-  String titulo;
-  String descricao;
-  DateTime datal;
-  bool favorito;
+  int? id;
+  String? titulo;
+  String? descricao;
+  DateTime? datal;
+  bool? favorito;
 
   LembreteDto(
       {this.id,
-      @required this.titulo,
-      @required this.descricao,
-      @required this.datal,
-      @required this.favorito})
+      required this.titulo,
+      required this.descricao,
+      required this.datal,
+      required this.favorito})
       : super(
             id: id,
             titulo: titulo,
@@ -25,7 +25,7 @@ class LembreteDto extends Lembrete {
     return {
       "titulo": this.titulo,
       "descricao": this.descricao,
-      "datal": this.datal.toIso8601String(),
+      "datal": this.datal!.toIso8601String(),
       "favorito": this.favorito,
     };
   }

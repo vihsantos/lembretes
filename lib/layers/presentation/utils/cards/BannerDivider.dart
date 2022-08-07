@@ -5,7 +5,7 @@ import 'package:lembretes/layers/presentation/utils/PaletaDeCores.dart';
 
 class BannerDivider extends StatefulWidget {
   BannerDivider({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

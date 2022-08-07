@@ -1,5 +1,5 @@
 import '../../entities/lembrete.dart';
 
 abstract class GetFavoritosUseCase {
-  Future<List<Lembrete>> call();
+  Future<List<Lembrete>?> call();
 }

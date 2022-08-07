@@ -4,8 +4,8 @@ import 'package:lembretes/layers/domain/usecases/FavoritarLembrete/favoritar_use
 import 'package:lembretes/layers/domain/usecases/GetLembretes/get_lembretes_usecase.dart';
 
 class LembretesController {
-  final GetLembretesUseCase getLembretesUseCase;
-  final FavoritarUseCase favoritarUseCase;
+  final GetLembretesUseCase? getLembretesUseCase;
+  final FavoritarUseCase? favoritarUseCase;
 
   LembretesController(this.getLembretesUseCase, this.favoritarUseCase) {
     initialize();
@@ -15,7 +15,7 @@ class LembretesController {
     this.buscarLembretes();
   }
 
-  List<Lembrete> lembretes;
+  List<Lembrete>? lembretes;
   final loadingApi = ValueNotifier<bool>(false);
   set loading(bool bool) => loadingApi.value = bool;
 
@@ -23,12 +23,12 @@ class LembretesController {
 
   buscarLembretes() async {
     loading = true;
-    lembretes = await getLembretesUseCase.call();
+    lembretes = await getLembretesUseCase!.call();
     loading = false;
   }
 
-  favoritar(int id) async {
-    await favoritarUseCase.call(id);
+  favoritar(int? id) async {
+    await favoritarUseCase!.call(id);
     buscarLembretes();
   }
 }

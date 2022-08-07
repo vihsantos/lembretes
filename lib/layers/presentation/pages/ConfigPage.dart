@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../utils/PaletaDeCores.dart';
 
 class ConfigPage extends StatefulWidget {
-  const ConfigPage({Key key}) : super(key: key);
+  const ConfigPage({Key? key}) : super(key: key);
 
   @override
   State<ConfigPage> createState() => _ConfigPageState();

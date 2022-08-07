@@ -5,7 +5,7 @@ import 'package:lembretes/layers/presentation/pages/TodosLembretes.dart';
 import 'package:lembretes/layers/presentation/utils/PaletaDeCores.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({Key key}) : super(key: key);
+  const MainPage({Key? key}) : super(key: key);
 
   @override
   State<MainPage> createState() => _MainPageState();

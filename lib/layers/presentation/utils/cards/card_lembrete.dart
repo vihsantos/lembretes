@@ -6,9 +6,9 @@ import '../PaletaDeCores.dart';
 
 class CardLembrete extends StatelessWidget {
   const CardLembrete({
-    Key key,
-    @required this.lembrete,
-    @required this.favoritar,
+    Key? key,
+    required this.lembrete,
+    required this.favoritar,
   }) : super(key: key);
 
   final Lembrete lembrete;
@@ -42,7 +42,7 @@ class CardLembrete extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        lembrete.titulo,
+                        lembrete.titulo!,
                         style: TextStyle(
                             color: PaletaDeCores.preto,
                             fontWeight: FontWeight.bold,
@@ -53,7 +53,7 @@ class CardLembrete extends StatelessWidget {
                         width: size.width * 0.79,
                         height: size.height * 0.09,
                         child: Text(
-                          lembrete.descricao,
+                          lembrete.descricao!,
                           maxLines: 3,
                           textAlign: TextAlign.justify,
                           style: TextStyle(
@@ -71,9 +71,9 @@ class CardLembrete extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   IconButton(
-                      onPressed: favoritar,
+                      onPressed: favoritar as void Function()?,
                       icon: Icon(
-                        lembrete.favorito
+                        lembrete.favorito!
                             ? Icons.favorite
                             : Icons.favorite_outline,
                         color: PaletaDeCores.roxo,
@@ -94,7 +94,7 @@ class CardLembrete extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.only(left: 10, top: 6, bottom: 6),
                   child: Text(
-                    DateFormat('dd/MM/yyyy').format(lembrete.datal),
+                    DateFormat('dd/MM/yyyy').format(lembrete.datal!),
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,

@@ -4,12 +4,12 @@ import 'package:lembretes/layers/domain/usecases/PostLembrete/post_lembrete_usec
 import '../../repositories/LembreteRepository.dart';
 
 class PostLembreteUseCaseImp implements PostLembreteUseCase {
-  final LembreteRepository lembreteRepository;
+  final LembreteRepository? lembreteRepository;
 
   PostLembreteUseCaseImp(this.lembreteRepository);
 
   @override
   Future<void> call(Lembrete lembrete) async {
-    return await lembreteRepository.postLembrete(lembrete);
+    return await lembreteRepository!.postLembrete(lembrete);
   }
 }
